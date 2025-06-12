@@ -1,54 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Contacto</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css" />
+    <meta name="description" content="Contáctanos en el Laboratorio Regional de Cómputo de Alto Desempeño (LARCAD), UNACH. Estamos ubicados en Tuxtla Gutiérrez, Chiapas." />
 </head>
-<body class="bg-[#0E0E0E]">
-    <nav class="bg-black text-white px-6 py-2 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+<body class="bg-[#0E0E0E] text-white font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50 shadow-md">
         <div class="font-bold text-2xl">LARCAD</div>
-        <!-- Hamburger Icon (Mobile) -->
         <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
-        <!-- Menu -->
-        <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
-            <li><a href="index.html" class="hover:text-blue-300 block">Inicio</a></li>
-            <li><a href="nosotros.html" class="hover:text-blue-300 block">Nosotros</a></li>
-            <li><a href="servicio.html" class="hover:text-blue-300 block">Servicio</a></li>
-            <li><a href="recursos.html" class="hover:text-blue-300 block">Recursos</a></li>
-            <li><a href="contacto.html" class="hover:text-blue-300 block">Contacto</a></li>
+        <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-7 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+            <li><a href="index.html" class="hover:text-orange-500 transition">Inicio</a></li>
+            <li><a href="nosotros.html" class="hover:text-orange-500 transition">Nosotros</a></li>
+            <li><a href="servicio.html" class="hover:text-orange-500 transition">Servicio</a></li>
+            <li><a href="recursos.html" class="hover:text-orange-500 transition">Recursos</a></li>
+            <li><a href="contacto.html" class="hover:text-orange-500 transition">Contacto</a></li>
         </ul>
     </nav>
+
+    <!-- Hero Banner -->
+    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative pt-16">
+        <img src="/img/supercomputo 1.png" alt="Supercomputo" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
+            <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
+        </div>
+    </div>
+
+    <!-- Encabezado -->
+    <div class="flex flex-col items-center my-8">
+        <h1 class="text-xl md:text-2xl font-bold text-orange-500">LARCAD</h1>
+        <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <main class="p-4 md:p-8 max-w-5xl mx-auto">
+        <section class="bg-white text-black p-8 rounded-xl shadow-2xl bg-gradient-to-br from-white to-gray-100" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-center text-[#FF9009] mb-6">Contáctanos</h2>
+
+            <!-- Mensaje de éxito -->
+            <div id="success-message" class="hidden mb-6">
+                <div class="flex items-center justify-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl" role="alert">
+                    <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span>¡Tu mensaje se envió correctamente!</span>
+                </div>
+            </div>
+
+            <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="apellidos">Apellidos</label>
+                    <input type="text" id="apellidos" name="apellidos" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" />
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"></textarea>
+                </div>
+                <div class="md:col-span-2">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl transition duration-300 shadow-lg">
+                        Enviar mensaje
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Mapa y Detalles de contacto lado a lado -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 mb-8 items-stretch">
+            <!-- Detalles de contacto -->
+            <div class="bg-[#022d5a] text-white rounded-xl shadow-2xl p-8 flex flex-col justify-center" data-aos="fade-right">
+                <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+                <ul class="space-y-2 text-sm text-gray-200">
+                    <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+                    <li>Universidad Autónoma de Chiapas</li>
+                    <li>Carretera Emiliano Zapata Km. 8</li>
+                    <li>Ciudad Universitaria, C. P. 29050</li>
+                    <li>Tuxtla Gutiérrez, Chiapas, México</li>
+                    <li>(+52) 961 617 8000 ext. 8107</li>
+                </ul>
+            </div>
+            <!-- Mapa -->
+            <div class="rounded-xl overflow-hidden shadow-xl flex items-center" data-aos="fade-left">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+                    width="100%" height="260" style="border:0; border-radius:12px; min-height:180px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#022d5a] text-white py-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <!-- Columna 1: Contacto -->
+            <div>
+                <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+                <ul class="space-y-2 text-sm text-gray-200">
+                    <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+                    <li>Universidad Autónoma de Chiapas</li>
+                    <li>Carretera Emiliano Zapata Km. 8</li>
+                    <li>Ciudad Universitaria, C. P. 29050</li>
+                    <li>Tuxtla Gutiérrez, Chiapas, México</li>
+                    <li>(+52) 961 617 8000 ext. 8107</li>
+                </ul>
+            </div>
+            <!-- Columna 2: Más Información -->
+            <div>
+                <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
+                <ul class="space-y-2 text-sm text-gray-200">
+                    <li><a href="index.html" class="hover:text-orange-400 transition">inicio</a></li>
+                    <li><a href="nosotros.html" class="hover:text-orange-400 transition">acerca de</a></li>
+                    <li><a href="servicio.html" class="hover:text-orange-400 transition">servicios</a></li>
+                    <li><a href="recursos.html" class="hover:text-orange-400 transition">recursos</a></li>
+                    <li><a href="contacto.html" class="hover:text-orange-400 transition">contacto</a></li>
+                </ul>
+            </div>
+            <!-- Columna 3: Mapa, Logos y redes -->
+            <div class="flex flex-col items-center space-y-4">
+                <div class="w-full mb-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+                        width="100%" height="180" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="flex gap-4">
+                    <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
+                    <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          duration: 1000,
+          once: true
+      });
+    </script>
+
+    <!-- Scripts -->
     <script>
         const btn = document.getElementById('menu-toggle');
         const menu = document.getElementById('nav-menu');
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('success-message').classList.remove('hidden');
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('success-message').classList.add('hidden');
+            }, 4000);
+        });
     </script>
-    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative"> <!-- Responsive height -->
-        <img src="/img/supercomputo 1.png" alt="Supercomputo" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
-            <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
-        </div>
-    </div>
-    <!-- Encabezado LARCAD naranja con franja azul -->
-    <div class="flex flex-col items-center mb-8">
-        <h1 class="text-xl md:text-2xl font-bold text-orange-500 pt-4">LARCAD</h1>
-        <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
-    </div>
-
-    <main class="p-8">
-
-    
-    </main>
 </body>
 </html>
