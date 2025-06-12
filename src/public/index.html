@@ -6,11 +6,13 @@
     <title>Inicio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+
+    <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-[#0E0E0E]">
-    <nav class="bg-black text-white px-6 py-2 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+    <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
         <div class="font-bold text-2xl">LARCAD</div>
         <!-- Hamburger Icon (Mobile) -->
         <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
@@ -47,10 +49,10 @@
     </div>
 
     <main class="p-8">
-        <section class="bg-gray-100 py-12">
+        <section class="bg-gray-100 py-12" data-aos="fade-up">
             <div class="max-w-6xl mx-auto bg-white shadow-md rounded-lg flex flex-col md:flex-row items-center p-6 space-y-6 md:space-y-0 md:space-x-6">
                 <!-- Texto -->
-                <div class="md:w-2/3 space-y-4">
+                <div class="md:w-2/3 space-y-4" data-aos="fade-right">
                     <h2 class="text-2xl font-semibold text-gray-800">Acerca de nosotros</h2>
                     <p class="text-sm text-gray-700 leading-relaxed">
                         Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de
@@ -62,21 +64,24 @@
                     </p>
                 </div>
                 <!-- Imagen y botón -->
-                <div class="md:w-1/3 flex flex-col items-center w-full">
-                    <img src="/img/pasillos.png" alt="Sala de servidores" class="rounded-md shadow mb-4" />
+                <div class="md:w-1/3 flex flex-col items-center w-full" data-aos="fade-left">
+                    <div class="w-full relative mx-auto h-auto overflow-hidden rounded-md shadow mb-4">
+                        <img src="/img/pasillos.png" alt="Sala de servidores" class="w-full h-auto relative z-0 rounded-md transition-all duration-300 hover:scale-110" />
+                    </div>
                     <a href="nosotros.html" class="bg-blue-900 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition duration-300 w-full md:w-auto block text-center">
                         Leer más
                     </a>
+                </div>
                 </div>
             </div>
         </section>
     </main>
 <!-- Sección de estadísticas con fondo naranja y bloque azul al final -->
-    <section class="grid grid-cols-1 md:grid-cols-4 pt-9">
+    <section class="grid grid-cols-1 md:grid-cols-4 pt-9" data-aos="fade-up">
         <!-- Naranja: estadísticas -->
         <div class="md:col-span-3 bg-orange-500 text-white py-8 px-4 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <!-- SERVIDORES -->
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center" data-aos="zoom-in">
                 <div class="mb-2">
                     <img src="/img/icons/iconPantalla.png" alt="" class="w-12 h-12" />
                 </div>
@@ -84,7 +89,7 @@
                 <div class="uppercase text-sm mt-1">Servidores</div>
             </div>
             <!-- Racks -->
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
                 <div class="mb-2">
                     <img src="/img/icons/iconServr.png" alt="" class="w-12 h-12" />
                 </div>
@@ -92,7 +97,7 @@
                 <div class="text-sm mt-1">Racks de 42<br>Unidades</div>
             </div>
             <!-- Switches -->
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
                 <div class="mb-2">
                     <img src="/img/icons/icono3.png" alt="" class="w-12 h-12" />
                 </div>
@@ -101,50 +106,44 @@
             </div>
         </div>
         <!-- Azul: logo -->
-        <div class="bg-blue-900 flex items-center justify-center p-6">
+        <div class="bg-blue-900 flex items-center justify-center p-6" data-aos="fade-left">
             <img src="/img/icons/logo_Cienciayfisica.png" alt="Logo UNACH" class="h-24 object-contain" />
         </div>
     </section>
 
-    
- <!-- Sección Recursos y Servicios -->
+<!-- Sección Recursos y Servicios -->
 <section class="text-[#003366] py-12 px-4">
-
     <!-- Recursos -->
-    <div class="flex flex-col items-center mb-8">
+    <div class="flex flex-col items-center mb-8" data-aos="fade-down">
         <h2 class="text-center text-orange-500 text-lg font-semibold uppercase">Recursos</h2>
         <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
         <!-- Tarjeta genérica -->
-        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg">
+        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300" data-aos="zoom-in">
             <!-- Parte negra con ícono -->
-            <div class="bg-[#003366] flex items-center justify-center h-28">
-                <img src="/img/icons/iconoPc.png" alt="Hardware" class="w-12 h-12">
+            <div class="bg-[#003366] flex items-center justify-center h-28 overflow-hidden">
+            <img src="/img/icons/iconoPc.png" alt="Hardware" class="w-12 h-12 transition-all duration-300 group-hover:scale-110">
             </div>
             <!-- Parte azul con texto -->
             <div class="bg-[#FAFAFA] flex-1 p-4">
-                <h3 class="font-bold text-lg mb-2">Hardware:</h3>
-                <p class="text-sm" style="color: #003366;">Lorem ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
+            <h3 class="font-bold text-lg mb-2">Hardware:</h3>
+            <p class="text-sm" style="color: #003366;">Lorem ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
             </div>
         </div>
-
         <!-- Repite las otras tarjetas -->
-
-        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg">
+        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="100">
             <div class="bg-[#003366] flex items-center justify-center h-28">
-                <img src="/img/icons/iconoInfraRed.png" alt="Red" class="w-12 h-12">
+                <img src="/img/icons/iconoInfraRed.png" alt="Red" class="w-12 h-12 transition-all duration-300 group-hover:scale-110">
             </div>
             <div class="bg-[#FAFAFA] flex-1 p-4">
                 <h3 class="font-bold text-lg mb-2">Infraestructura de red:</h3>
                 <p class="text-sm" style="color: #003366;">Lorem ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
             </div>
         </div>
-
-        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg">
+        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="200">
             <div class="bg-[#003366] flex items-center justify-center h-28">
-                <img src="/img/icons/iconoCapacProcs.png" alt="Procesamiento" class="w-12 h-12">
+                <img src="/img/icons/iconoCapacProcs.png" alt="Procesamiento" class="w-12 h-12 transition-all duration-300 group-hover:scale-110">
             </div>
             <div class="bg-[#FAFAFA] flex-1 p-4">
                 <h3 class="font-bold text-lg mb-2">Capacidad de procesamiento:</h3>
@@ -152,37 +151,33 @@
             </div>
         </div>
     </div>
-
     <!-- Servicios -->
-    <div class="flex flex-col items-center mb-8">
+    <div class="flex flex-col items-center mb-8" data-aos="fade-down">
         <h2 class="text-center text-orange-500 text-lg font-semibold uppercase">Servicios</h2>
         <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg">
+        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300" data-aos="zoom-in">
             <div class="bg-[#003366] flex items-center justify-center h-28">
-                <img src="/img/icons/iconoServAdm.png" alt="Housing" class="w-12 h-12">
+                <img src="/img/icons/iconoServAdm.png" alt="Housing" class="w-12 h-12 transition-all duration-300 group-hover:scale-110">
             </div>
             <div class="bg-[#FAFAFA] flex-1 p-4">
                 <h3 class="font-bold text-lg mb-2">Servicio de Housing</h3>
                 <p class="text-sm" style="color: #003366;">Infraestructura tecnológica acorde a las líneas de operación del cliente, en modalidad de housing.</p>
             </div>
         </div>
-
-        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg">
+        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="100">
             <div class="bg-[#003366] flex items-center justify-center h-28">
-                <img src="/img/icons/image.png" alt="Respaldo" class="w-12 h-12">
+                <img src="/img/icons/image.png" alt="Respaldo" class="w-12 h-12 transition-all duration-300 group-hover:scale-110">
             </div>
             <div class="bg-[#FAFAFA] flex-1 p-4">
                 <h3 class="font-bold text-lg mb-2">Respaldo Administrado</h3>
                 <p class="text-sm" style="color: #003366;">Respaldo profesional para salvaguardar los datos y asegurar su disponibilidad.</p>
             </div>
         </div>
-
-        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg">
+        <div class="flex flex-col h-72 rounded-xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="200">
             <div class="bg-[#003366] flex items-center justify-center h-28">
-                <img src="/img/icons/iconoAlmacenAdm.png" alt="Almacenamiento" class="w-12 h-12">
+                <img src="/img/icons/iconoAlmacenAdm.png" alt="Almacenamiento" class="w-12 h-12 transition-all duration-300 group-hover:scale-110">
             </div>
             <div class="bg-[#FAFAFA] flex-1 p-4">
                 <h3 class="font-bold text-lg mb-2">Almacenamiento</h3>
@@ -191,7 +186,6 @@
         </div>
     </div>
 </section>
-
 <!-- Sección de contacto -->
 <section class="py-12 px-4">
     <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
@@ -253,57 +247,62 @@
     </script>
 </section>
 <footer class="bg-[#022d5a] text-white py-10">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
-    <!-- Columna 1: Contacto -->
-    <div>
-      <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
-      <ul class="space-y-2 text-sm text-gray-200">
-        <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
-        <li>Universidad Autónoma de Chiapas</li>
-        <li>Carretera Emiliano Zapata Km. 8</li>
-        <li>Ciudad Universitaria, C. P. 29050</li>
-        <li>Tuxtla Gutiérrez, Chiapas, México</li>
-        <li>(+52) 961 617 8000 ext. 8107</li>
-      </ul>
+        <!-- Columna 1: Contacto -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+                <li>Universidad Autónoma de Chiapas</li>
+                <li>Carretera Emiliano Zapata Km. 8</li>
+                <li>Ciudad Universitaria, C. P. 29050</li>
+                <li>Tuxtla Gutiérrez, Chiapas, México</li>
+                <li>(+52) 961 617 8000 ext. 8107</li>
+            </ul>
+        </div>
+
+        <!-- Columna 2: Más Información -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="#" class="hover:text-orange-400 transition">inicio</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">acerca de</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">servicios</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">recursos</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Mapa, Logos y redes -->
+        <div class="flex flex-col items-center space-y-4">
+            <!-- Mapa -->
+            <div class="w-full mb-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+                    width="100%" height="180" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="flex gap-4">
+                <!-- Logos (usa tus imágenes reales o URLs aquí) -->
+                <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
+                <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
+            </div>
+
+            <!-- Redes sociales -->
+            
+                    
+        </div>
     </div>
-
-    <!-- Columna 2: Más Información -->
-    <div>
-      <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
-      <ul class="space-y-2 text-sm text-gray-200">
-        <li><a href="#" class="hover:text-orange-400 transition">inicio</a></li>
-        <li><a href="#" class="hover:text-orange-400 transition">acerca de</a></li>
-        <li><a href="#" class="hover:text-orange-400 transition">servicios</a></li>
-        <li><a href="#" class="hover:text-orange-400 transition">recursos</a></li>
-        <li><a href="#" class="hover:text-orange-400 transition">contacto</a></li>
-      </ul>
-    </div>
-
-    <!-- Columna 3: Logos y redes -->
-    <div class="flex flex-col items-center space-y-4">
-      <div class="flex gap-4">
-        <!-- Logos (usa tus imágenes reales o URLs aquí) -->
-        <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
-        <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
-      </div>
-
-      <!-- Redes sociales -->
-      <div class="flex space-x-4 mt-4">
-        <a href="#" class="bg-white text-[#022d5a] p-2 rounded-full hover:bg-orange-400 hover:text-white transition">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="bg-white text-[#022d5a] p-2 rounded-full hover:bg-orange-400 hover:text-white transition">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="#" class="bg-white text-[#022d5a] p-2 rounded-full hover:bg-orange-400 hover:text-white transition">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </div>
-    </div>
-  </div>
 </footer>
 
-    </main>
+    <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+      duration: 1000,
+      once: true
+  });
+</script>
 </body>
 </html>

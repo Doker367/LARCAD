@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosotros</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body class="bg-[#0E0E0E]">
     <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
@@ -31,37 +33,39 @@
             menu.classList.toggle('hidden');
         });
     </script>
-    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative"> <!-- Responsive height -->
+    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative">
         <img src="/img/supercomputo 1.png" alt="Supercomputo" class="w-full h-full object-cover" />
         <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
             <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
         </div>
     </div>
     <!-- Encabezado LARCAD naranja con franja azul -->
-    <div class="flex flex-col items-center mb-8">
+    <div class="flex flex-col items-center mb-8" data-aos="fade-up">
         <h1 class="text-xl md:text-2xl font-bold text-orange-500 pt-4">LARCAD - Laboratorio Regional de Computo de Alto Desempeño</h1>
         <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
     </div>
 
     <main class="p-8">
-        <section class="bg-gray-100 py-12">
-            <div class="max-w-6xl mx-auto bg-white shadow-md rounded-lg flex flex-col md:flex-row items-center p-6 space-y-6 md:space-y-0 md:space-x-6">
-                <!-- Texto -->
-                <div class="md:w-2/3 space-y-4">
-                    <h2 class="text-2xl font-semibold text-gray-800">Bienvenidos</h2>
-                    <p class="text-sm text-gray-700 leading-relaxed">
-                        El Laboratorio Regional de Cómputo de Alto Desempeño (LARCAD) es producto de la colaboración de tres instituciones con amplia experiencia en supercómputo que unen esfuerzos con el Conacyt para facilitar a la comunidad científica de México el acceso a recursos computacionales de alto nivel.
-                        Larcad está concebido como herramienta para el desarrollo de la ciencia y tecnología, para ofrecer servicios al sector público y privado, manifestó Valencia Palomo, quien es miembro nivel I del Sistema Nacional de Investigadores (SNI) y profesor investigador de la Facultad de Ciencias de la Universidad Autónoma de Querétaro (UAQ).
-                    </p>
-                </div>
-                <!-- Imagen y botón -->
-                <div class="md:w-1/3 flex flex-col items-center w-full">
-                    <img src="/img/pasillo2.png" alt="Sala de servidores" class="rounded-md shadow mb-4" />
-                </div>
-            </div>
-        </section>
-        <section class="bg-black py-12">
-            <div class="max-w-6xl mx-auto bg-[#0E0E0E] shadow-md rounded-lg flex flex-col md:flex-row items-center p-6 space-y-6 md:space-y-0 md:space-x-6">
+        <!-- AOS necesita estar activo (ver nota abajo) -->
+<section class="py-16 bg-fixed bg-center bg-cover" style="background-image: url('/img/fndNOSOTROS.jpg');" data-aos="fade-down">
+  <div class="max-w-6xl mx-auto backdrop-blur-md bg-black/30 border border-white/20 rounded-2xl shadow-xl flex flex-col md:flex-row items-center p-8 space-y-6 md:space-y-0 md:space-x-10 transition-transform duration-500 transform hover:scale-105">
+    <!-- Texto -->
+    <div class="md:w-2/3 space-y-4 text-white">
+      <h2 class="text-3xl font-bold text-orange-500">Bienvenidos</h2>
+      <p class="text-base leading-relaxed">
+        El Laboratorio Regional de Cómputo de Alto Desempeño (LARCAD) es producto de la colaboración de tres instituciones con amplia experiencia en supercómputo que unen esfuerzos con el Conacyt para facilitar a la comunidad científica de México el acceso a recursos computacionales de alto nivel.
+        LARCAD está concebido como herramienta para el desarrollo de la ciencia y tecnología, para ofrecer servicios al sector público y privado, manifestó Valencia Palomo, quien es miembro nivel I del Sistema Nacional de Investigadores (SNI) y profesor investigador de la Facultad de Ciencias de la Universidad Autónoma de Querétaro (UAQ).
+      </p>
+    </div>
+    <!-- Imagen -->
+    <div class="md:w-1/3 flex justify-center">
+      <img src="/img/pasillo2.png" alt="Sala de servidores" class="rounded-lg shadow-lg w-full max-w-sm transition-transform duration-300 hover:scale-105" />
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-fixed bg-center bg-cover" style="background-image: url('/img/fndNOSOTROS2.jpg');" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto backdrop-blur-md bg-black/10 border border-white/20 rounded-2xl shadow-xl flex flex-col md:flex-row items-center p-8 space-y-6 md:space-y-0 md:space-x-10 transition-transform duration-500 transform hover:scale-105">
                 <!-- Texto -->
                 <div class="md:w-2/3 space-y-4">
                     <h2 class="text-2xl font-semibold text-orange-500">UNACH presenta avances de LARCAD</h2>
@@ -78,12 +82,12 @@
 
         <!-- Sección de Información -->
         <section id="info" class="py-16 px-4">
-            <div class="max-w-6xl mx-auto">
+            <div class="max-w-6xl mx-auto" data-aos="zoom-in">
                 <h1 class="text-3xl font-bold text-center text-orange-500 mb-12">Nuestra Organización</h1>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- Tarjeta genérica reutilizable -->
                     <!-- Misión -->
-                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up">
                         <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                             <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">MISIÓN</h2>
@@ -93,7 +97,8 @@
                         </div>
                     </div>
                     <!-- Visión -->
-                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up" data-aos-delay="100">
                         <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                             <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">VISIÓN</h2>
@@ -103,7 +108,8 @@
                         </div>
                     </div>
                     <!-- Objetivo -->
-                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up" data-aos-delay="200">
                         <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                             <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">OBJETIVO</h2>
@@ -113,7 +119,8 @@
                         </div>
                     </div>
                     <!-- Políticas de Calidad -->
-                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up" data-aos-delay="300">
                         <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                             <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">POLÍTICAS DE CALIDAD</h2>
@@ -125,10 +132,63 @@
                 </div>
             </div>
         </section>
+    </main>
+    <footer class="bg-[#022d5a] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
+        <!-- Columna 1: Contacto -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+                <li>Universidad Autónoma de Chiapas</li>
+                <li>Carretera Emiliano Zapata Km. 8</li>
+                <li>Ciudad Universitaria, C. P. 29050</li>
+                <li>Tuxtla Gutiérrez, Chiapas, México</li>
+                <li>(+52) 961 617 8000 ext. 8107</li>
+            </ul>
+        </div>
 
+        <!-- Columna 2: Más Información -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="#" class="hover:text-orange-400 transition">inicio</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">acerca de</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">servicios</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">recursos</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">contacto</a></li>
+            </ul>
+        </div>
 
+        <!-- Columna 3: Mapa, Logos y redes -->
+        <div class="flex flex-col items-center space-y-4">
+            <!-- Mapa -->
+            <div class="w-full mb-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+                    width="100%" height="180" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="flex gap-4">
+                <!-- Logos (usa tus imágenes reales o URLs aquí) -->
+                <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
+                <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
+            </div>
 
-            </main>
+            <!-- Redes sociales -->
+            
+                    
+        </div>
+    </div>
+</footer>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 </body>
 </html>
