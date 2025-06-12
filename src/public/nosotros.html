@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0E0E0E]">
+    <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+        <div class="font-bold text-2xl">LARCAD</div>
+        <!-- Hamburger Icon (Mobile) -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+        <!-- Menu -->
+        <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-20 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+            <li><a href="index.html" class="hover:text-blue-300 block">Inicio</a></li>
+            <li><a href="nosotros.html" class="hover:text-blue-300 block">Nosotros</a></li>
+            <li><a href="servicio.html" class="hover:text-blue-300 block">Servicio</a></li>
+            <li><a href="recursos.html" class="hover:text-blue-300 block">Recursos</a></li>
+            <li><a href="contacto.html" class="hover:text-blue-300 block">Contacto</a></li>
+        </ul>
+    </nav>
+    <script>
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('nav-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative"> <!-- Responsive height -->
+        <img src="/img/supercomputo 1.png" alt="Supercomputo" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
+            <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
+        </div>
+    </div>
+    <!-- Encabezado LARCAD naranja con franja azul -->
+    <div class="flex flex-col items-center mb-8">
+        <h1 class="text-xl md:text-2xl font-bold text-orange-500 pt-4">LARCAD - Laboratorio Regional de Computo de Alto Desempeño</h1>
+        <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
+    </div>
+
+    <main class="p-8">
+        <section class="bg-gray-100 py-12">
+            <div class="max-w-6xl mx-auto bg-white shadow-md rounded-lg flex flex-col md:flex-row items-center p-6 space-y-6 md:space-y-0 md:space-x-6">
+                <!-- Texto -->
+                <div class="md:w-2/3 space-y-4">
+                    <h2 class="text-2xl font-semibold text-gray-800">Bienvenidos</h2>
+                    <p class="text-sm text-gray-700 leading-relaxed">
+                        El Laboratorio Regional de Cómputo de Alto Desempeño (LARCAD) es producto de la colaboración de tres instituciones con amplia experiencia en supercómputo que unen esfuerzos con el Conacyt para facilitar a la comunidad científica de México el acceso a recursos computacionales de alto nivel.
+                        Larcad está concebido como herramienta para el desarrollo de la ciencia y tecnología, para ofrecer servicios al sector público y privado, manifestó Valencia Palomo, quien es miembro nivel I del Sistema Nacional de Investigadores (SNI) y profesor investigador de la Facultad de Ciencias de la Universidad Autónoma de Querétaro (UAQ).
+                    </p>
+                </div>
+                <!-- Imagen y botón -->
+                <div class="md:w-1/3 flex flex-col items-center w-full">
+                    <img src="/img/pasillo2.png" alt="Sala de servidores" class="rounded-md shadow mb-4" />
+                </div>
+            </div>
+        </section>
+        <section class="bg-black py-12">
+            <div class="max-w-6xl mx-auto bg-[#0E0E0E] shadow-md rounded-lg flex flex-col md:flex-row items-center p-6 space-y-6 md:space-y-0 md:space-x-6">
+                <!-- Texto -->
+                <div class="md:w-2/3 space-y-4">
+                    <h2 class="text-2xl font-semibold text-orange-500">UNACH presenta avances de LARCAD</h2>
+                    <p class="text-sm text-white leading-relaxed">
+                        En representación del Mat. Humberto Salas Velázquez, Coordinador Estatal de Tecnologías de Información y Comunicaciones; el Ing. Miguel Armando Morell, Director de Normatividad e Infraestructura Tecnológica, adscrito a esta coordinación, acudió a las instalaciones de la Universidad Autónoma de Chiapas (UNACH) a una presentación de los avances del Proyecto "Laboratorio Regional de Cómputo de Alto Desempeño (LARCAD)", en la que estuvo presente personal de la UNACH, entre los que destacan el Dr. Sendic Estrada, Director de la Facultad de Ciencias en Física y Matemáticas; el Ing. Marino Pérez, Coordinador de TI; y el Ing. Jorge Alberto Romo, Líder del proyecto LARCAD. Cabe señalar que en agosto del 2015, la Organización Europea para la Investigación Nuclear (CERN) donó servidores a la UNACH, para crear este laboratorio.
+                    </p>
+                </div>
+                <!-- Imagen y botón -->
+                <div class="md:w-1/3 flex flex-col items-center w-full">
+                    <img src="/img/pasillo2.png" alt="Sala de servidores" class="rounded-md shadow mb-4" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Información -->
+        <section id="info" class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-3xl font-bold text-center text-orange-500 mb-12">Nuestra Organización</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Tarjeta genérica reutilizable -->
+                    <!-- Misión -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">MISIÓN</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center">
+                                Nuestra misión es proporcionar soluciones tecnológicas innovadoras que impulsen el crecimiento digital de nuestros clientes.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Visión -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">VISIÓN</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center">
+                                Ser líderes en innovación tecnológica, transformando ideas en productos de alto impacto global.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Objetivo -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">OBJETIVO</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center">
+                                Garantizar productos de calidad, seguros y eficientes que satisfagan las necesidades de nuestros clientes.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Políticas de Calidad -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center h-48 sm:h-64 transition-all duration-300" style="background-image: url('/img/pasillos.png');">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">POLÍTICAS DE CALIDAD</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center">
+                                Comprometidos con la mejora continua, cumpliendo con estándares internacionales y expectativas del cliente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+            </main>
+</body>
+</html>

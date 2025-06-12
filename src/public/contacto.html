@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</head>
+<body class="bg-[#0E0E0E]">
+    <nav class="bg-black text-white px-6 py-2 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+        <div class="font-bold text-2xl">LARCAD</div>
+        <!-- Hamburger Icon (Mobile) -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+        <!-- Menu -->
+        <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+            <li><a href="index.html" class="hover:text-blue-300 block">Inicio</a></li>
+            <li><a href="nosotros.html" class="hover:text-blue-300 block">Nosotros</a></li>
+            <li><a href="servicio.html" class="hover:text-blue-300 block">Servicio</a></li>
+            <li><a href="recursos.html" class="hover:text-blue-300 block">Recursos</a></li>
+            <li><a href="contacto.html" class="hover:text-blue-300 block">Contacto</a></li>
+        </ul>
+    </nav>
+    <script>
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('nav-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative"> <!-- Responsive height -->
+        <img src="/img/supercomputo 1.png" alt="Supercomputo" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
+            <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
+        </div>
+    </div>
+    <!-- Encabezado LARCAD naranja con franja azul -->
+    <div class="flex flex-col items-center mb-8">
+        <h1 class="text-xl md:text-2xl font-bold text-orange-500 pt-4">LARCAD</h1>
+        <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
+    </div>
+
+    <main class="p-8">
+
+    
+    </main>
+</body>
+</html>
