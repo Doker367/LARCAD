@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LARCAD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/style.css">
+        <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+<body class="bg-[#0E0E0E]">
+    <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+        <div class="font-bold text-2xl">LARCAD</div>
+        <!-- Hamburger Icon (Mobile) -->
+        <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+        <!-- Menu -->
+        <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+            <li><a href="index.html" class="hover:text-blue-300 block">Inicio</a></li>
+            <li><a href="nosotros.html" class="hover:text-blue-300 block">Nosotros</a></li>
+            <li><a href="servicio.html" class="hover:text-blue-300 block">Servicio</a></li>
+            <li class="relative group">
+  <button type="button" class="hover:text-blue-300 flex items-center w-full md:w-auto">
+    Recursos
+    <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  <ul class="absolute md:left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-30 hidden md:block">
+    <li><a href="hardware.html" class="block px-4 py-2 hover:bg-blue-900">Hardware</a></li>
+    <li><a href="software.html" class="block px-4 py-2 hover:bg-blue-900">Software</a></li>
+  </ul>
+</li>
+
+
+            <li><a href="contacto.html" class="hover:text-blue-300 block">Contacto</a></li>
+        </ul>
+    </nav>
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('nav-menu');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+
+  // Submenú funcional en móvil (menor a 768px)
+  const recursosItem = document.querySelector('li.group');
+  const submenu = recursosItem.querySelector('ul');
+  const recursosButton = recursosItem.querySelector('button');
+
+  recursosButton.addEventListener('click', (e) => {
+    if (window.innerWidth < 768) {
+      e.preventDefault();
+      submenu.classList.toggle('hidden');
+    }
+  });
+</script>
+
+    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative"> <!-- Responsive height -->
+        <img src="/img/supercomputo 1.png" alt="Supercomputo" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
+            <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
+        </div>
+    </div>
+    <!-- Encabezado LARCAD naranja con franja azul -->
+    <div class="flex flex-col items-center mb-8">
+        <h1 class="text-xl md:text-2xl font-bold text-orange-500 pt-4">LARCAD</h1>
+        <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
+    </div>
+
+    <main class="p-8">
+        <section class="bg-[#0E0E0E] py-12 px-4 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-orange-500 mb-10 text-center">Software de Desarrollo</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- CARD 1: CORSIKA -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/hardware/corsika.jpg" alt="CORSIKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">CORSIKA</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">CORSIKA es un software de física para la simulación de extensas duchas de aire inducidas por rayos cósmicos de alta energía.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://www.ikp.kit.edu/corsika/index.php" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://www.ikp.kit.edu/corsika/70.php" target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: 74005, 74005curved, 74005th, 74100curved</li>
+        </ul>
+      </div>
+
+      <!-- CARD 2: FLUKA -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/hardware/Fluka.png" alt="FLUKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">FLUKA</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">FLUKA es una herramienta de propósito general para cálculos de transporte de partículas e interacciones con la materia, usada en múltiples aplicaciones científicas.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="http://www.fluka.org/fluka.php" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="http://www.fluka.org/content/manuals/online/INDEX-fluka2011.html" target="_blank" class="hover:underline">Manual</a></li>
+          <li><a href="http://www.fluka.org/fluka.php?id=courses&sub=ALL" target="_blank" class="hover:underline">Cursos</a></li>
+          <li>Versión: 2011.2c</li>
+        </ul>
+      </div>
+
+      <!-- CARD 3: GEANT4 -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/hardware/g4.jpg" alt="Geant4 Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">Geant4</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">Geant4 es un conjunto de herramientas para simular el paso de partículas a través de la materia, con aplicaciones en física de alta energía, medicina y más.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://geant4.web.cern.ch/" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://geant4.web.cern.ch/support/user_documentation" target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: Geant4-10.1.0</li>
+        </ul>
+      </div>
+      <!-- CARD 4: Hawc2 -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/corsika_logo.png" alt="CORSIKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">Hawc2</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">HAWC2 es un código aeroelástico destinado a calcular la respuesta de la turbina eólica en el dominio del tiempo.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="http://www.hawc2.dk/ Cursos https://www.hawc2.dk/courses" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="http://www.hawc2.dk/download/hawc2-manual Versión" target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: ape-hawc-2.02.02, </li>
+        </ul>
+      </div>
+
+      <!-- CARD 5: Orca -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/fluka_logo.png" alt="Orca Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">ORCA</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">ORCA es un software de química cuántica que ofrece métodos avanzados de estructura electrónica, como teoría del funcional de densidad y métodos multirreferencia. Está diseñado para estudiar moléculas grandes, complejos de metales de transición y sus propiedades espectroscópicas.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://orcaforum.cec.mpg.de/ Notas" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://orcaforum.cec.mpg.de/viewtopic.php?f=20&t=3120" target="_blank" class="hover:underline">Manual</a></li>
+          
+          <li>Versión: 3.03 4.01</li>
+        </ul>
+      </div>
+
+      <!-- CARD 6: QUANTUM -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/geant4_logo.png" alt="Geant4 Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">QUANTUM ESPRESSO</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">Quantum Espresso es un conjunto integrado de códigos de computadora de código abierto para cálculos de estructura electrónica y modelado de materiales a nanoescala. Se basa en la teoría de densidad funcional, ondas planas y pseudopotenciales.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href=" https://www.quantum-espresso.org" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://www.quantum-espresso.org/resources/users-" target="_blank" class="hover:underline">Documentación</a></li>
+          <li><a href="https://www.quantum-espresso.org/resources/tutorials" target="_blank" class="hover:underline">Manual</a></li>
+          <li>Versión: 5.1.2 6.1</li>
+        </ul>
+      </div>
+      <!-- CARD 7: ROOT -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/corsika_logo.png" alt="CORSIKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">ROOT</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">ROOT es un juego de herramientas de software científico modular. Proporciona todas las funcionalidades necesarias para tratar el procesamiento de big data, el análisis estadístico, la visualización y el almacenamiento. Está escrito principalmente en C ++ pero integrado con otros lenguajes como Python y R.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://root.cern.ch" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://root.cern.ch/ Documentación" target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: root-5.34.26, root-6.10.08</li>
+        </ul>
+      </div>
+
+      <!-- CARD 8: SIESTA -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/fluka_logo.png" alt="FLUKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">SIESTA</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">SIESTA es un software para cálculos de estructura electrónica y simulaciones moleculares ab initio, diseñado para ser eficiente gracias a su uso de bases localizadas y algoritmos de escala lineal. Su precisión y costo computacional son ajustables, permitiendo desde simulaciones rápidas hasta resultados de alta precisión comparables con métodos avanzados.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="http://www.fluka.org/fluka.php" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://departments.icmab.es/leem/siesta/ Documentación" target="_blank" class="hover:underline">Documentación</a></li>
+          <li><a href="https://root.cern.ch/tutorials " target="_blank" class="hover:underline">Cursos</a></li>
+          <li>Versión: 2011.2c</li>
+        </ul>
+      </div>
+
+      <!-- CARD 9: GROMACS -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/geant4_logo.png" alt="Geant4 Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">GROMACS</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">GROMACS (GROningen MAchine for Chemical Simulations) es un programa de alto rendimiento, de código abierto, multiplataforma utilizado para realizar la simulación de la dinámica molecular de sistemas con cientos de millones de partículas. Gromacs fue originalmente desarrollado en la Universidad de Groningen, pero por ser de código abierto ha sido reimplementado por muchos otros desarrolladores.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li>GROMACS es un software de simulación molecular que funciona en sistemas Linux usando computación paralela con PVM.
+
+          </li>
+        </ul>
+      </div>
+      
+      |
+
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Librerias -->
+ <section class="bg-[#0E0E0E] py-12 px-4 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-orange-500 mb-10 text-center">Librerias</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- CARD 1: FFTW -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/corsika_logo.png" alt="CORSIKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">FFTW</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">FFTW es una biblioteca de subrutinas C para calcular la transformada discreta de Fourier (DFT) en una o más dimensiones, de tamaño de entrada arbitrario, y de datos tanto reales como complejos (así como de datos pares / impares, es decir, las transformaciones discretas de coseno / seno o DCT / DST).</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href=" http://www.fftw.org" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href=" http://www.fftw.org/Documentación target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: 3.5.6</li>
+        </ul>
+      </div>
+
+      <!-- CARD 2: Open MPI -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/fluka_logo.png" alt="FLUKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">Open MPI</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">El proyecto Open MPI es una implementación de interfaz de paso de mensajes de código abierto desarrollada y mantenida por un consorcio de socios académicos, de investigación y de la industria. Por lo tanto, Open MPI puede combinar la experiencia, las tecnologías y los recursos de toda la comunidad de computación de alto rendimiento para construir la mejor biblioteca de MPI disponible. Open MPI ofrece ventajas para los proveedores de sistemas y software, desarrolladores de aplicaciones e investigadores de ciencias de la computación.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://www.open-mpi.org" target="_blank" class="hover:underline">Sitio oficial</a></li>
+        </ul>
+      </div>
+
+      <!-- CARD 3: HADOOP -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/geant4_logo.png" alt="Geant4 Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">HADOOP</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">HDFS es un sistema de archivos distribuido de Hadoop, tolerante a fallos y diseñado para hardware económico. Optimizado para grandes volúmenes de datos, relaja requisitos POSIX para alto rendimiento.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://hadoop.apache.org" target="_blank" class="hover:underline">Sitio oficial</a></li>
+        </ul>
+      </div>
+      <!-- CARD 4: NetCDF -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/corsika_logo.png" alt="CORSIKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">NetCDF</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">NetCDF (Network Common Data Form) es un conjunto de interfaces para acceso a datos orientado a matrices y una colección de bibliotecas de acceso a datos distribuidas libremente para C, Fortran, C ++, Java y otros idiomas. Las bibliotecas de netCDF admiten un formato independiente de la máquina para representar datos científicos. Juntas, las interfaces, las bibliotecas y el formato admiten la creación, el acceso y el intercambio de datos científicos.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://www.unidata.ucar.edu" target="_blank" class="hover:underline">Sitio oficial</a></li>
+        </ul>
+      </div>
+
+      <!-- CARD 5: OpenBLAS -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/fluka_logo.png" alt="Orca Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">OpenBLAS</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">OpenBLAS es una biblioteca BLAS optimizada basada en la versión BSD de GotoBLAS2 1.13. Por favor lea los documentos en la wiki de OpenBLAS.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://www.openblas.net" target="_blank" class="hover:underline">Sitio oficial</a></li>          
+          <li>Versión:  0.2.20 stable version on Jul 24, 2017</li>
+        </ul>
+      </div>
+
+      <!-- CARD 6:ScaLAPACK  -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/geant4_logo.png" alt="Geant4 Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">ScaLAPACK</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">ScaLAPACK es una biblioteca de rutinas de álgebra lineal de alto rendimiento para máquinas de memoria distribuida en paralelo. ScaLAPACK resuelve sistemas lineales densos y en bandas, problemas de mínimos cuadrados, problemas de valores propios y problemas de valores singulares. Las ideas clave incorporadas en ScaLAPACK incluyen el uso de 1._una distribución de datos de bloques cíclicos para matrices densas y una distribución de datos de bloques para matrices en bandas, parametrizable en tiempo de ejecución; 2._algoritmos de partición en bloque para garantizar altos niveles de reutilización de datos; 3._Componentes modulares de bajo nivel bien diseñados que simplifican la tarea de paralelizar las rutinas de alto nivel haciendo que su código fuente sea el mismo que en el caso secuencial.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="ttp://www.netlib.org/scalapack/" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li>Versión: scalapack-2.0.2.tgz</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Compiladores -->
+ <section class="bg-[#0E0E0E] py-12 px-4 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-orange-500 mb-10 text-center">Compiladores</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- CARD 1: Cmake -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/corsika_logo.png" alt="CORSIKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">CMake</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">CMake es una herramienta multiplataforma que automatiza la compilación de software usando archivos de configuración. Genera Makefiles o proyectos para distintos compiladores, facilitando el desarrollo en diferentes sistemas.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://cmake.org" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://cmake.org/ Documentación" target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: 3.71</li>
+        </ul>
+      </div>
+
+      <!-- CARD 2: Developer Toolset -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/fluka_logo.png" alt="FLUKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">Developer Toolset</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">Developer Toolset está diseñado para desarrolladores que trabajan en la plataforma CentOS o Red Hat Enterprise Linux. Proporciona las versiones actuales de la Colección de compiladores de GNU, el Depurador de GNU y otras herramientas de desarrollo, depuración y supervisión del rendimiento.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-4/ " target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li>Versión: 4</li>
+        </ul>
+      </div>
+
+      <!-- CARD 3: GCC -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/geant4_logo.png" alt="Geant4 Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">GCC</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">GCC es un conjunto de compiladores de GNU que soporta múltiples lenguajes. Es clave en sistemas Unix y software libre, distribuido bajo licencia GPL.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="https://gcc.gnu.org/" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li>GCC 6.5 released [2018-10-26] C-SKY support [2018-08-17] GCC support for C-SKY V2 processors has been added. This back end was contributed by C-SKY Microsystems and Mentor Graphics.</li>
+        </ul>
+      </div>
+      <!-- CARD 4: Parallel Studio XE -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/corsika_logo.png" alt="CORSIKA Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">Parallel Studio XE</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">Intel Parallel Studio Xe es un conjunto integral de herramientas de desarrollo que hace que sea más fácil construir y modernizar el código con las últimas técnicas en vectorización, multihilo, paralelización de varios nodos y optimización de la memoria. Permite a los desarrolladores de software C, C ++, Fortran y Python : - Crear un código más rápido: mejore el rendimiento de la aplicación que se escala en las plataformas Intel actuales y futuras.
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href=" https://software.intel.com/en-us/articles/intel-parallel-studio-xe-2015-" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://software.intel.com/en-us/parallel-studio-xe/documentation" target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: 15.0.1 </li>
+        </ul>
+      </div>
+
+      <!-- CARD 5: Oracle JDK -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/fluka_logo.png" alt="Orca Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">Oracle JDK</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">Java Development Kit es un software que provee herramientas de desarrollo para la creación de programas en Java. Puede instalarse en una computadora local o en una unidad de red. En la unidad de red se pueden tener las herramientas distribuidas en varias computadoras y trabajar como una sola aplicación.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href="http://www.oracle.com/technetwork/java/javase/overview/index.html" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="http://www.oracle.com/technetwork/java/javase/documentation/index.htm" target="_blank" class="hover:underline">Manual</a></li>
+          
+          <li>Versión: jdk 1.8.0_102</li>
+        </ul>
+      </div>
+
+      <!-- CARD 6:Python  -->
+      <div class="bg-gray-900 rounded-2xl shadow-lg p-6 hover:shadow-orange-400/30 transition duration-300">
+        <img src="/img/geant4_logo.png" alt="Geant4 Logo" class="w-16 h-16 mb-4">
+        <h3 class="text-xl font-semibold text-blue-400">Python</h3>
+        <p class="text-sm text-gray-300 mt-2 mb-4">Python es un lenguaje de programación multiparadigma, ya que soporta orientación a objetos, programación imperativa y, en menor medida, programación funcional. Es un lenguaje interpretado, usa tipado dinámico y es multiplataforma.</p>
+        <ul class="text-sm text-blue-300 space-y-1">
+          <li><a href=" https://www.python.org" target="_blank" class="hover:underline">Sitio oficial</a></li>
+          <li><a href="https://www.python.org/ Documentación" target="_blank" class="hover:underline">Documentación</a></li>
+          <li>Versión: 3.4.3 v 2.66</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    </main>
+    <footer class="bg-[#022d5a] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+        <!-- Columna 1: Contacto -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+                <li>Universidad Autónoma de Chiapas</li>
+                <li>Carretera Emiliano Zapata Km. 8</li>
+                <li>Ciudad Universitaria, C. P. 29050</li>
+                <li>Tuxtla Gutiérrez, Chiapas, México</li>
+                <li>(+52) 961 617 8000 ext. 8107</li>
+            </ul>
+        </div>
+
+        <!-- Columna 2: Más Información -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="#" class="hover:text-orange-400 transition">inicio</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">acerca de</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">servicios</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">recursos</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Mapa, Logos y redes -->
+        <div class="flex flex-col items-center space-y-4">
+            <!-- Mapa -->
+            <div class="w-full mb-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+                    width="100%" height="180" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="flex gap-4">
+                <!-- Logos (usa tus imágenes reales o URLs aquí) -->
+                <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
+                <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
+            </div>
+
+            <!-- Redes sociales -->
+            
+                    
+        </div>
+    </div>
+</footer>
+    <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+      duration: 1000,
+      once: true
+  });
+</script>
+</body>
+</html>
