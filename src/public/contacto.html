@@ -36,28 +36,11 @@
   </ul>
 </li>
 
+
             <li><a href="contacto.html" class="hover:text-blue-300 block">Contacto</a></li>
         </ul>
     </nav>
-<script>
-  const btn = document.getElementById('menu-toggle');
-  const menu = document.getElementById('nav-menu');
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
 
-  // Submenú funcional en móvil (menor a 768px)
-  const recursosItem = document.querySelector('li.group');
-  const submenu = recursosItem.querySelector('ul');
-  const recursosButton = recursosItem.querySelector('button');
-
-  recursosButton.addEventListener('click', (e) => {
-    if (window.innerWidth < 768) {
-      e.preventDefault();
-      submenu.classList.toggle('hidden');
-    }
-  });
-</script>
 
     <!-- Hero Banner -->
     <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative pt-16">
@@ -192,40 +175,43 @@
           duration: 1000,
           once: true
       });
-    </script>
 
-    <!-- Scripts -->
-    <script>
-        const btn = document.getElementById('menu-toggle');
-        const menu = document.getElementById('nav-menu');
+      // Menú hamburguesa y submenú Recursos (unificado y sin duplicados)
+      const btn = document.getElementById('menu-toggle');
+      const menu = document.getElementById('nav-menu');
+      if (btn && menu) {
         btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+          menu.classList.toggle('hidden');
         });
+      }
 
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('success-message').classList.remove('hidden');
-            this.reset();
-            setTimeout(() => {
-                document.getElementById('success-message').classList.add('hidden');
-            }, 4000);
-        });
+      // Submenú funcional en móvil (menor a 768px)
+      const recursosItem = document.querySelector('li.group');
+      if (recursosItem) {
+        const submenu = recursosItem.querySelector('ul');
+        const recursosButton = recursosItem.querySelector('button');
+        if (recursosButton && submenu) {
+          recursosButton.addEventListener('click', (e) => {
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              submenu.classList.toggle('hidden');
+            }
+          });
+        }
+      }
 
-        // Mostrar menú en móvil al hacer clic en Recursos
-        const recursosLi = document.querySelectorAll('#nav-menu > li');
-        recursosLi.forEach(li => {
-          if (li.textContent.trim().startsWith('Recursos')) {
-            li.addEventListener('click', function(e) {
-              if(window.innerWidth < 768) {
-                const submenu = li.querySelector('ul');
-                if(submenu) {
-                  e.preventDefault();
-                  submenu.classList.toggle('hidden');
-                }
-              }
-            });
-          }
+      // Formulario de contacto
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          document.getElementById('success-message').classList.remove('hidden');
+          this.reset();
+          setTimeout(() => {
+            document.getElementById('success-message').classList.add('hidden');
+          }, 4000);
         });
+      }
     </script>
 </body>
 </html>
