@@ -10,6 +10,10 @@ app.use(express.static('src/public'));
 // const routes = require('./routes');
 // app.use('/', routes);
 
+// Configuración de seguridad
+const secureApp = require('../config/secure');
+secureApp(app);
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

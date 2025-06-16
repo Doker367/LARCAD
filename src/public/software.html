@@ -10,6 +10,19 @@
 
 </head>
 <body class="bg-[#0E0E0E]" data-aos="fade-in">
+  <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <img src="/img/cargando.gif" alt="Cargando..." class="w-32 h-32 animate-pulse" />
+  </div>
+  <script>
+    // Muestra el loader al cargar la página
+    window.onload = function() {
+        const loader = document.getElementById('loader');
+        // Oculta el loader después de 2 segundos (ajusta según sea necesario)
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500); // Cambia 2000 a 0 si no quieres un retraso
+    };
+</script>
     <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50 shadow-lg" style="position:sticky;top:0;" data-aos="fade-down">
         <div class="font-bold text-2xl" data-aos="fade-right">LARCAD</div>
         <!-- Hamburger Icon (Mobile) -->
