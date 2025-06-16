@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="/img/icons/icono2.png" type="image/svg+xml">
-
 
     <!-- AOS CSS -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-[#0E0E0E]">
+      <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <img src="/img/cargando.gif" alt="Cargando..." class="w-32 h-32 animate-pulse" />
+  </div>
+  <script>
+    // Muestra el loader al cargar la página
+    window.onload = function() {
+        const loader = document.getElementById('loader');
+        // Oculta el loader después de 2 segundos (ajusta según sea necesario)
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500); // Cambia 2000 a 0 si no quieres un retraso
+    };
+</script>
     <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
         <div class="font-bold text-2xl">LARCAD</div>
         <!-- Hamburger Icon (Mobile) -->
