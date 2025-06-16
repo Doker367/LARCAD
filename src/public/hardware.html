@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware | LARCAD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/style.css">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-[#0E0E0E] text-white font-sans">
+  <!-- Navbar -->
+  <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+    <div class="font-bold text-2xl">LARCAD</div>
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+    <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+      <li><a href="index.html" class="hover:text-blue-300 block">Inicio</a></li>
+      <li><a href="nosotros.html" class="hover:text-blue-300 block">Nosotros</a></li>
+      <li><a href="servicio.html" class="hover:text-blue-300 block">Servicio</a></li>
+      <li class="relative group">
+        <button type="button" class="hover:text-blue-300 flex items-center w-full md:w-auto">
+          Recursos
+          <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul class="absolute md:left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-30 hidden md:block">
+          <li><a href="hardware.html" class="block px-4 py-2 hover:bg-blue-900">Hardware</a></li>
+          <li><a href="software.html" class="block px-4 py-2 hover:bg-blue-900">Software</a></li>
+        </ul>
+      </li>
+      <li><a href="contacto.html" class="hover:text-blue-300 block">Contacto</a></li>
+    </ul>
+  </nav>
+  <script>
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('nav-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+    // Submenú funcional en móvil (menor a 768px)
+    const recursosItem = document.querySelector('li.group');
+    const submenu = recursosItem.querySelector('ul');
+    const recursosButton = recursosItem.querySelector('button');
+    recursosButton.addEventListener('click', (e) => {
+      if (window.innerWidth < 768) {
+        e.preventDefault();
+        submenu.classList.toggle('hidden');
+      }
+    });
+  </script>
+
+  <!-- Sección: Infraestructura de Hardware -->
+  <section class="bg-gradient-to-br from-[#0B0B13] via-[#181A20] to-[#23243A] text-white py-16 px-6 md:px-16 mt-[88px] md:mt-[88px] min-h-[80vh]" id="infraestructura">
+    <div class="max-w-7xl mx-auto" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center text-blue-400 mb-6 md:mb-8">Infraestructura de Hardware</h2>
+      <p class="text-center text-gray-300 mb-14 md:mb-16 text-lg md:text-xl">Potente arquitectura de cómputo de alto rendimiento</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
+        <!-- Servidores -->
+        <div class="glass-card group transition-all duration-300 hover:scale-105 hover:shadow-orange-400/30 hover:shadow-lg relative overflow-hidden px-8 py-10 flex flex-col items-center justify-center min-h-[320px]" data-aos="zoom-in">
+          <div class="flex items-center justify-center mb-6">
+            <svg class="w-14 h-14 text-blue-400 group-hover:text-orange-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 3v4M8 3v4"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-400 mb-4 text-center">Servidores</h3>
+          <ul class="text-gray-300 text-base space-y-2 text-center">
+            <li>360 servidores con procesadores Intel Xeon</li>
+            <li>692 CPU, 2768 núcleos</li>
+            <li>5760 GB de RAM</li>
+            <li>15 TFlops de rendimiento</li>
+            <li>1075 TB de almacenamiento (HDD)</li>
+          </ul>
+        </div>
+        <!-- Clúster de Cálculo -->
+        <div class="glass-card group transition-all duration-300 hover:scale-105 hover:shadow-orange-400/30 hover:shadow-lg relative overflow-hidden px-8 py-10 flex flex-col items-center justify-center min-h-[320px]" data-aos="zoom-in" data-aos-delay="100">
+          <div class="flex items-center justify-center mb-6">
+            <svg class="w-14 h-14 text-blue-400 group-hover:text-orange-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 17v-2a4 4 0 014-4h8a4 4 0 014 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-400 mb-4 text-center">Clúster de Cálculo</h3>
+          <ul class="text-gray-300 text-base space-y-2 text-center">
+            <li>312 Nodos</li>
+            <li>624 CPU, 2496 Núcleos</li>
+            <li>4992 GB de RAM</li>
+            <li>13.3 TFlops Teórico</li>
+          </ul>
+        </div>
+        <!-- Almacenamiento /home -->
+        <div class="glass-card group transition-all duration-300 hover:scale-105 hover:shadow-orange-400/30 hover:shadow-lg relative overflow-hidden px-8 py-10 flex flex-col items-center justify-center min-h-[320px]" data-aos="zoom-in" data-aos-delay="200">
+          <div class="flex items-center justify-center mb-6">
+            <svg class="w-14 h-14 text-blue-400 group-hover:text-orange-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-400 mb-4 text-center">Clúster de Almacenamiento (/home)</h3>
+          <ul class="text-gray-300 text-base space-y-2 text-center">
+            <li>Capacidad total: 96 TB</li>
+          </ul>
+        </div>
+        <!-- Almacenamiento /scratch -->
+        <div class="glass-card group transition-all duration-300 hover:scale-105 hover:shadow-orange-400/30 hover:shadow-lg relative overflow-hidden px-8 py-10 flex flex-col items-center justify-center min-h-[320px]" data-aos="zoom-in" data-aos-delay="300">
+          <div class="flex items-center justify-center mb-6">
+            <svg class="w-14 h-14 text-blue-400 group-hover:text-orange-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 17v2M18 17v2"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-400 mb-4 text-center">Clúster de Almacenamiento (/scratch)</h3>
+          <ul class="text-gray-300 text-base space-y-2 text-center">
+            <li>Capacidad total: 800 TB</li>
+            <li>File System: Ceph</li>
+          </ul>
+        </div>
+        <!-- Switches -->
+        <div class="glass-card group transition-all duration-300 hover:scale-105 hover:shadow-orange-400/30 hover:shadow-lg relative overflow-hidden px-8 py-10 flex flex-col items-center justify-center min-h-[320px]" data-aos="zoom-in" data-aos-delay="400">
+          <div class="flex items-center justify-center mb-6">
+            <svg class="w-14 h-14 text-blue-400 group-hover:text-orange-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 17v2M18 17v2"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-400 mb-4 text-center">Conectividad</h3>
+          <ul class="text-gray-300 text-base space-y-2 text-center">
+            <li>24 Switch Capa 2</li>
+            <li>14 Switch Capa 3</li>
+            <li>Red Ethernet Gigabit para gestión y aprovisionamiento</li>
+          </ul>
+        </div>
+        <!-- Racks -->
+        <div class="glass-card group transition-all duration-300 hover:scale-105 hover:shadow-orange-400/30 hover:shadow-lg relative overflow-hidden px-8 py-10 flex flex-col items-center justify-center min-h-[320px]" data-aos="zoom-in" data-aos-delay="500">
+          <div class="flex items-center justify-center mb-6">
+            <svg class="w-14 h-14 text-blue-400 group-hover:text-orange-400 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-orange-400 mb-4 text-center">Racks</h3>
+          <ul class="text-gray-300 text-base space-y-2 text-center">
+            <li>32 Racks de cómputo y almacenamiento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Glassmorphism CSS -->
+  <style>
+    .glass-card {
+      background: rgba(30, 41, 59, 0.55);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      border: 1.5px solid rgba(255,255,255,0.12);
+    }
+  </style>
+
+  <!-- Footer -->
+  <footer class="bg-[#022d5a] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <!-- Columna 1: Contacto -->
+      <div>
+        <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+        <ul class="space-y-2 text-sm text-gray-200">
+          <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+          <li>Universidad Autónoma de Chiapas</li>
+          <li>Carretera Emiliano Zapata Km. 8</li>
+          <li>Ciudad Universitaria, C. P. 29050</li>
+          <li>Tuxtla Gutiérrez, Chiapas, México</li>
+          <li>(+52) 961 617 8000 ext. 8107</li>
+        </ul>
+      </div>
+      <!-- Columna 2: Más Información -->
+      <div>
+        <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
+        <ul class="space-y-2 text-sm text-gray-200">
+          <li><a href="index.html" class="hover:text-orange-400 transition">inicio</a></li>
+          <li><a href="nosotros.html" class="hover:text-orange-400 transition">acerca de</a></li>
+          <li><a href="servicio.html" class="hover:text-orange-400 transition">servicios</a></li>
+          <li><a href="recursos.html" class="hover:text-orange-400 transition">recursos</a></li>
+          <li><a href="contacto.html" class="hover:text-orange-400 transition">contacto</a></li>
+        </ul>
+      </div>
+      <!-- Columna 3: Mapa, Logos y redes -->
+      <div class="flex flex-col items-center space-y-4">
+        <div class="w-full mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+            width="100%" height="180" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="flex gap-4">
+          <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
+          <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
