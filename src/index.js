@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path'); // Añade esta línea
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,17 +22,17 @@ app.post('/send-email', (req, res) => {
     
     // Configurar el transportador de nodemailer
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'alberto.grajales97@unach.mx',
-            pass: 'plgi vmge tunh bzbj'
-        }
-    });
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+    }
+});
     
     // Configurar el email
     const mailOptions = {
-        from: 'LARCAD',
-        to: 'alberto.grajales97@unach.mx',
+        from: '"LARCAD - Sitio Web" <no-reply@larcad.com>',
+        to: 'blcdoker@gmail.com',
         subject: 'Nuevo mensaje de contacto',
         text: `Nombre: ${nombre}\nApellidos: ${apellidos}\nTeléfono: ${telefono}\nCorreo: ${correo}\nMensaje: ${mensaje}`,
         html: `
