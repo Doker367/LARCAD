@@ -24,52 +24,79 @@
     };
 </script>
     <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
-        <div class="font-bold text-2xl">LARCAD</div>
-        <!-- Hamburger Icon (Mobile) -->
-        <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-        </button>
-        <!-- Menu -->
-        <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
-            <li><a href="index.html" class="hover:text-blue-300 block">Inicio</a></li>
-            <li><a href="nosotros.html" class="hover:text-blue-300 block">Nosotros</a></li>
-            <li><a href="servicio.html" class="hover:text-blue-300 block">Servicio</a></li>
-            <li class="relative group">
-  <button type="button" class="hover:text-blue-300 flex items-center w-full md:w-auto">
-    Recursos
-    <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-    </svg>
-  </button>
-  <ul class="absolute md:left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-30 hidden md:block">
-    <li><a href="hardware.html" class="block px-4 py-2 hover:bg-blue-900">Hardware</a></li>
-    <li><a href="software.html" class="block px-4 py-2 hover:bg-blue-900">Software</a></li>
-  </ul>
-</li>
+    <div class="font-bold text-2xl">LARCAD</div>
+    <!-- Hamburger Icon (Mobile) -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <!-- Menu -->
+    <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+        <li class="relative group">
+            <a href="index.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="index">Inicio</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="nosotros.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="nosotros">Nosotros</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="servicio.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="servicio">Servicio</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <button type="button" class="hover:text-orange-400 flex items-center w-full md:w-auto transition-colors duration-300 group-hover:text-orange-400">
+                Recursos
+                <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <ul class="absolute md:left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-30 hidden md:block">
+                <li><a href="hardware.html" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Hardware</a></li>
+                <li><a href="software.html" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Software</a></li>
+            </ul>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="contacto.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="contacto">Contacto</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+    </ul>
+</nav>
 
-            <li><a href="contacto.html" class="hover:text-blue-300 block">Contacto</a></li>
-        </ul>
-    </nav>
 <script>
-  const btn = document.getElementById('menu-toggle');
-  const menu = document.getElementById('nav-menu');
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-  });
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('nav-menu');
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
 
-  // Submenú funcional en móvil (menor a 768px)
-  const recursosItem = document.querySelector('li.group');
-  const submenu = recursosItem.querySelector('ul');
-  const recursosButton = recursosItem.querySelector('button');
+    // Submenú funcional en móvil (menor a 768px)
+    const recursosItem = document.querySelectorAll('li.group')[3]; // El cuarto elemento con clase group
+    const submenu = recursosItem.querySelector('ul');
+    const recursosButton = recursosItem.querySelector('button');
 
-  recursosButton.addEventListener('click', (e) => {
-    if (window.innerWidth < 768) {
-      e.preventDefault();
-      submenu.classList.toggle('hidden');
-    }
-  });
+    recursosButton.addEventListener('click', (e) => {
+        if (window.innerWidth < 768) {
+            e.preventDefault();
+            submenu.classList.toggle('hidden');
+        }
+    });
+
+    // Detectar página activa y animar el indicador
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-page') === currentPage) {
+                link.classList.add('text-orange-400');
+                const indicator = link.parentElement.querySelector('.nav-indicator');
+                indicator.classList.add('w-full');
+            }
+        });
+    });
 </script>
     <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative"> <!-- Responsive height -->
         <img src="/img/supercomputo 1.png" alt="Supercomputo" class="w-full h-full object-cover" />
@@ -270,16 +297,7 @@
             </div>
         </form>
     </div>
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('success-message').classList.remove('hidden');
-            this.reset();
-            setTimeout(() => {
-                document.getElementById('success-message').classList.add('hidden');
-            }, 4000);
-        });
-    </script>
+
 </section>
 <footer class="bg-[#022d5a] text-white py-10">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
@@ -338,6 +356,45 @@
       duration: 1000,
       once: true
   });
+</script>
+<!-- Agrega este script al final del body -->
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        nombre: document.getElementById('nombre').value,
+        apellidos: document.getElementById('apellidos').value,
+        telefono: document.getElementById('telefono').value,
+        correo: document.getElementById('correo').value,
+        mensaje: document.getElementById('mensaje').value
+    };
+    
+    fetch('/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Mostrar mensaje de éxito
+            document.getElementById('success-message').classList.remove('hidden');
+            // Limpiar el formulario
+            document.getElementById('contact-form').reset();
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                document.getElementById('success-message').classList.add('hidden');
+            }, 5000);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ocurrió un error al enviar el mensaje. Por favor intenta nuevamente.');
+    });
+});
 </script>
 </body>
 </html>
