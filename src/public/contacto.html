@@ -69,22 +69,22 @@
         <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
     </div>
 
-    <!-- Formulario de contacto -->
-    <main class="p-4 md:p-8 max-w-5xl mx-auto">
-        <section class="bg-white text-black p-8 rounded-xl shadow-2xl bg-gradient-to-br from-white to-gray-100" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-center text-[#FF9009] mb-6">Contáctanos</h2>
+   <!-- Formulario de contacto -->
+<main class="p-4 md:p-8 max-w-5xl mx-auto">
+    <section class="bg-white text-black p-8 rounded-xl shadow-2xl bg-gradient-to-br from-white to-gray-100" data-aos="fade-up">
+        <h2 class="text-2xl font-bold text-center text-[#FF9009] mb-6">Contáctanos</h2>
 
-            <!-- Mensaje de éxito -->
-            <div id="success-message" class="hidden mb-6">
-                <div class="flex items-center justify-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl" role="alert">
-                    <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    <span>¡Tu mensaje se envió correctamente!</span>
-                </div>
+        <!-- Mensaje de éxito -->
+        <div id="success-message" class="hidden mb-6">
+            <div class="flex items-center justify-center bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl" role="alert">
+                <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>¡Tu mensaje se envió correctamente!</span>
             </div>
+        </div>
 
-            <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1" for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm" />
@@ -105,13 +105,54 @@
                     <label class="block text-sm font-medium text-gray-700 mb-1" for="mensaje">Mensaje</label>
                     <textarea id="mensaje" name="mensaje" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"></textarea>
                 </div>
-                <div class="md:col-span-2">
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl transition duration-300 shadow-lg">
-                        Enviar mensaje
-                    </button>
-                </div>
-            </form>
-        </section>
+               <div class="md:col-span-2">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl transition duration-300 shadow-lg">
+                    Enviar mensaje
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<!-- Agrega este script al final del body -->
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        nombre: document.getElementById('nombre').value,
+        apellidos: document.getElementById('apellidos').value,
+        telefono: document.getElementById('telefono').value,
+        correo: document.getElementById('correo').value,
+        mensaje: document.getElementById('mensaje').value
+    };
+    
+    fetch('/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Mostrar mensaje de éxito
+            document.getElementById('success-message').classList.remove('hidden');
+            // Limpiar el formulario
+            document.getElementById('contact-form').reset();
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                document.getElementById('success-message').classList.add('hidden');
+            }, 5000);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ocurrió un error al enviar el mensaje. Por favor intenta nuevamente.');
+    });
+});
+</script>
 
         <!-- Mapa y Detalles de contacto lado a lado -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 mb-8 items-stretch">
