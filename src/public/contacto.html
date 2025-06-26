@@ -6,6 +6,23 @@
     <title>Contacto</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="description" content="Contáctanos en el Laboratorio Regional de Cómputo de Alto Desempeño (LARCAD), UNACH. Estamos ubicados en Tuxtla Gutiérrez, Chiapas." />
+    <style>
+      @media (min-width: 768px) {
+        #chatbot-box {
+          width: 400px;
+          height: 600px;
+        }
+      }
+      @media (max-width: 768px) {
+        #chatbot-box {
+          width: 100%;
+          height: 80%;
+          bottom: 0;
+          right: 0;
+          border-radius: 0;
+        }
+      }
+    </style>
 </head>
 <body class="bg-[#0E0E0E] text-white font-sans">
 
@@ -27,48 +44,62 @@
 <script>
 // Genera un sessionId único para el usuario
 const sessionId = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-let isFirstMessage = true;
+const mensajes = document.getElementById('chat-mensajes');
+const entrada = document.getElementById('chat-entrada');
+const toggle = document.getElementById('chatbot-toggle');
+const box = document.getElementById('chatbot-box');
 
-async function enviarAlBot() {
-    const mensaje = entrada.value.trim();
-    if (!mensaje) return;
-    
-    // Mensaje del usuario
-    mensajes.innerHTML += `<div class="text-right"><strong>Tú:</strong> ${mensaje}</div>`;
-    entrada.value = '';
-    mensajes.scrollTop = mensajes.scrollHeight;
+async function enviarAlBot(mensaje) {
+    if (!mensaje) {
+        mensaje = entrada.value.trim();
+        if (!mensaje) return;
+
+        // Mensaje del usuario
+        mensajes.innerHTML += `<div class="text-right bg-blue-500 text-white p-2 rounded-lg mb-2 inline-block">${mensaje}</div>`;
+        entrada.value = '';
+        mensajes.scrollTop = mensajes.scrollHeight;
+    }
 
     try {
         // Mensaje inicial de carga
-        if(isFirstMessage) {
-            mensajes.innerHTML += `<div class="text-left"><strong>Bot:</strong> <span id="loading-indicator">Escribiendo...</span></div>`;
-            mensajes.scrollTop = mensajes.scrollHeight;
-            isFirstMessage = false;
-        }
+        mensajes.innerHTML += `<div class="text-left bg-gray-200 text-black p-2 rounded-lg mb-2 inline-block" id="loading-indicator">Escribiendo...</div>`;
+        mensajes.scrollTop = mensajes.scrollHeight;
 
         const res = await fetch('/api/chatbot', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                message: mensaje,  // Cambiado de 'mensaje' a 'message'
+                message: mensaje,
                 sessionId: sessionId
             })
         });
-        
+
         const data = await res.json();
-        
+
         // Remueve el indicador de carga
         const loadingIndicator = document.getElementById('loading-indicator');
-        if(loadingIndicator) loadingIndicator.remove();
-        
+        if (loadingIndicator) loadingIndicator.remove();
+
         // Agrega la respuesta del bot
-        mensajes.innerHTML += `<div class="text-left"><strong>Bot:</strong> ${data.fulfillmentText}</div>`;
+        mensajes.innerHTML += `<div class="text-left bg-gray-200 text-black p-2 rounded-lg mb-2 inline-block">${data.fulfillmentText}</div>`;
         mensajes.scrollTop = mensajes.scrollHeight;
+
+        // Sugerir más opciones
+        sugerirOpciones();
     } catch (error) {
         console.error('Error:', error);
         mensajes.innerHTML += `<div class="text-left text-red-500"><strong>Error:</strong> No se pudo conectar con el asistente</div>`;
         mensajes.scrollTop = mensajes.scrollHeight;
     }
+}
+
+function sugerirOpciones() {
+    mensajes.innerHTML += `<div class="text-left space-y-2 mt-4">
+        <button onclick="enviarAlBot('¿Qué servicios ofrecen?')" class="bg-blue-500 text-white px-3 py-1 rounded-lg block">¿Qué servicios ofrecen?</button>
+        <button onclick="enviarAlBot('¿Dónde están ubicados?')" class="bg-blue-500 text-white px-3 py-1 rounded-lg block">¿Dónde están ubicados?</button>
+        <button onclick="enviarAlBot('¿Cómo puedo contactarlos?')" class="bg-blue-500 text-white px-3 py-1 rounded-lg block">¿Cómo puedo contactarlos?</button>
+    </div>`;
+    mensajes.scrollTop = mensajes.scrollHeight;
 }
 
 // Permitir enviar con Enter
@@ -80,10 +111,13 @@ entrada.addEventListener('keypress', (e) => {
 toggle.addEventListener('click', () => {
     if (box.classList.contains('hidden')) {
         box.classList.remove('hidden');
+        box.classList.add('flex');
         // Mensaje de bienvenida inicial
-        mensajes.innerHTML = `<div class="text-left"><strong>Bot:</strong> ¡Hola! Soy el asistente de LARCAD. ¿En qué puedo ayudarte?</div>`;
+        mensajes.innerHTML = `<div class="text-left bg-gray-200 text-black p-2 rounded-lg mb-2 inline-block">¡Hola! Soy el asistente de LARCAD. ¿En qué puedo ayudarte?</div>`;
+        sugerirOpciones();
     } else {
         box.classList.add('hidden');
+        box.classList.remove('flex');
     }
 });
 </script>
