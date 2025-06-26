@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-white">
+  <!-- Loader GIF pantalla completa -->
+  <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <img src="/img/cargando.gif" alt="Cargando..." class="w-32 h-32 animate-pulse" />
+  </div>
+
+  <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+    <div class="font-bold text-2xl">LARCAD</div>
+    <!-- Hamburger Icon (Mobile) -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <!-- Menu -->
+    <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+        <li class="relative group">
+            <a href="index.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="index">Inicio</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="nosotros.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="nosotros">Nosotros</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="servicio.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="servicio">Servicios</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <button type="button" class="hover:text-orange-400 flex items-center w-full md:w-auto transition-colors duration-300 group-hover:text-orange-400">
+                Recursos
+                <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <ul class="absolute md:left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-30 hidden md:block">
+                <li><a href="hardware.html" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Hardware</a></li>
+                <li><a href="software.html" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Software</a></li>
+            </ul>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="contacto.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="contacto">Contacto</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('nav-menu');
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // Submenú funcional en móvil (menor a 768px)
+    const recursosItem = document.querySelectorAll('li.group')[3]; // El cuarto elemento con clase group
+    const submenu = recursosItem.querySelector('ul');
+    const recursosButton = recursosItem.querySelector('button');
+
+    recursosButton.addEventListener('click', (e) => {
+        if (window.innerWidth < 768) {
+            e.preventDefault();
+            submenu.classList.toggle('hidden');
+        }
+    });
+
+    // Detectar página activa y animar el indicador
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-page') === currentPage) {
+                link.classList.add('text-orange-400');
+                const indicator = link.parentElement.querySelector('.nav-indicator');
+                indicator.classList.add('w-full');
+            }
+        });
+    });
+</script>
+  <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative">
+    <img src="/img/InicioServ.png" alt="Supercomputo" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
+      <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
+    </div>
+  </div>
+  <!-- Encabezado LARCAD naranja con franja azul -->
+  <div class="flex flex-col items-center mb-8">
+    <h1 class="text-xl md:text-2xl font-bold text-orange-500 pt-4">LARCAD - Laboratorio Regional de Cómputo de Alto Desempeño</h1>
+    <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
+  </div>
+
+  <main class="p-8">
+    <section class="bg-gray-100 py-16 px-4">
+  <div class="max-w-6xl mx-auto">
+
+  <!-- Encabezado -->
+  <h2 class="text-center text-orange-500 text-lg font-semibold mb-10" data-aos="fade-down">Servicios</h2>
+
+  <!-- Servicio 1 -->
+  <!-- Servicio 1 - Housing -->
+<div class="bg-white rounded-xl shadow-md p-6 mb-12" data-aos="fade-up">
+  <h3 class="text-blue-900 text-xl font-bold mb-4" data-aos="fade-right">COLOCACIÓN SEGURA Y CONFIABLE DE EQUIPOS DE TECNOLOGÍAS DE INFORMACIÓN (HOUSING)</h3>
+  
+  <!-- Subservicio 1 - Hosting -->
+  <div class="mb-6" data-aos="fade-left">
+    <h4 class="text-blue-800 font-semibold mb-2">SERVICIO DE HOSPEDAJE (HOSTING)</h4>
+    <p class="text-gray-700">
+      Albergue de sistemas, como páginas web y bases de datos, entre otros.
+    </p>
+  </div>
+  
+  <!-- Subservicio 2 - Monitoreo -->
+  <div class="mb-6" data-aos="fade-left">
+    <h4 class="text-blue-800 font-semibold mb-2">MONITOREO DE INFRAESTRUCTURA</h4>
+    <p class="text-gray-700">
+      Software especializado para monitorear los parámetros operativos de equipos físicos y virtuales, así como dispositivos de red en funcionamiento dentro del Centro de Datos.
+    </p>
+  </div>
+
+  <!-- Íconos / Habilidades -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+    <div data-aos="zoom-in">
+      <img src="/img/icons/nosotros/iconoS1.svg" alt="Virtualización" class="mx-auto mb-2 w-12 h-12" />
+      <p class="text-sm">Ambiente de virtualización VMware (x86)</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="100">
+      <img src="/img/icons/nosotros/iconos2.svg" alt="Almacenamiento" class="mx-auto mb-2 w-12 h-12" />
+      <p class="text-sm">Sistema de almacenamiento híbrido con NFS y SAN</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="200">
+      <img src="/img/icons/nosotros/iconos3.svg" alt="Respaldo" class="mx-auto mb-2 w-12 h-12" />
+      <p class="text-sm">Herramientas de respaldo con recuperación en el tiempo</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="300">
+      <img src="/img/icons/nosotros/icononos4.svg" alt="Administración" class="mx-auto mb-2 w-12 h-12" />
+      <p class="text-sm">Administración y configuración de sistemas operativos</p>
+    </div>
+    <div data-aos="zoom-in" data-aos-delay="400">
+      <img src="/img/icons/nosotros/iconos5.svg" alt="Seguridad" class="mx-auto mb-2 w-12 h-12" />
+      <p class="text-sm">Seguridad informática y protección de datos</p>
+    </div>
+  </div>
+</div>
+
+<!-- Servicio 2 - Almacenamiento en la nube -->
+<div class="bg-white rounded-xl shadow-md p-6 mb-12 max-w-6xl mx-auto" data-aos="fade-up">
+  <!-- Título -->
+  <h3 class="text-blue-900 text-xl md:text-xl font-bold mb-6 " data-aos="fade-right">
+    ALMACENAMIENTO DE INFORMACIÓN EN LA NUBE
+  </h3>
+
+  <!-- Lista + Icono (lado a lado en md, columna en mobile) -->
+  <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+    <!-- Lista -->
+    <ul class="text-gray-700 space-y-2 list-disc text-left md:w-2/3" data-aos="fade-up">
+      <li>Permite guardar archivos y datos en servidores remotos colocados en el LARCAD</li>
+      <li>Accesible desde cualquier lugar con conexión a internet</li>
+      <li>Solución escalable según necesidades de almacenamiento</li>
+      <li>Protección de datos con sistemas de respaldo automatizados</li>
+    </ul>
+
+    <!-- Icono -->
+    <img
+      src="img/icons/AlmaNube.gif"
+      alt="almacenamiento en la nube"
+      class="w-16 h-16 md:w-24 md:h-24 flex-shrink-0"
+      data-aos="fade-left"
+    >
+  </div>
+</div>
+
+
+<!-- Sección de Servicios de Corto y Mediano Plazo -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <!-- Servicio 1 - Interconexión -->
+    <!-- Servicio 1 - Interconexión -->
+<div class="bg-white rounded-xl shadow-lg p-8 mb-12" data-aos="fade-up">
+  <h3 class="text-xl font-bold text-blue-800 mb-6 text-center md:text-left">SERVICIOS DE TELECOMUNICACIONES</h3>
+
+  <!-- Subservicio 1 - Telecomunicaciones -->
+  <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+    <!-- Icono -->
+    <div class="flex justify-center md:justify-start md:w-1/4">
+      <img src="/img/icons/servTele.gif" alt="Telecomunicaciones" class="w-20 h-20 md:w-24 md:h-24 " data-aos="zoom-in" />
+    </div>
+
+    <!-- Texto -->
+    <div class="md:w-3/4">
+      <p class="text-gray-700 mb-4">
+        Servicios avanzados de telecomunicaciones que garantizan conectividad segura y confiable para instituciones públicas, privadas y académicas, con alta disponibilidad y protección integral de la información.
+      </p>
+      <ul class="space-y-2 text-gray-700 list-disc list-inside">
+        <li>Seguridad Perimetral (firewall avanzado, sistemas de detección de intrusos)</li>
+        <li>Servidor de Nombres de Dominio (DNS) </li>
+	<li>Salida a internet con enlace único o redundante </li>
+        <li>Interconexión local entre instituciones mediante fibra óptica</li>
+        <li>Alta disponibilidad y redundancia en enlaces</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Servicio 2 - Simulaciones -->
+<div class="bg-white rounded-xl shadow-lg p-8 mb-12" data-aos="fade-up">
+  <h3 class="text-xl font-bold text-blue-800 mb-6 md:text-left">SIMULACIONES DE ALTO DESEMPEÑO</h3>
+  <div class="flex flex-col md:flex-row-reverse items-center md:items-start gap-6">
+    <!-- Icono a la izquierda -->
+    <div class="flex justify-center md:justify-start md:w-1/4">
+      <img src="/img/icons/simulAlt.png" alt="Simulaciones de Alto Desempeño" class="w-16 h-16 md:w-20 md:h-20" data-aos="zoom-in" />
+    </div>
+
+    <!-- Contenido -->
+    <div class="md:w-3/4">
+      <ul class="space-y-3 text-gray-700 list-disc list-inside">
+        <li>Diseño e Implementación de Bases de Datos</li>
+        <li>Soluciones Tecnológicas e Industriales mediante Simulación de Cómputo de Alto Desempeño</li>
+        <li>Capacitación y Certificaciones Especializadas en bases de datos, switches, ciberseguridad, diseño web y comercio electrónico</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+  <!-- Servicio 2 -->
+  <div class="bg-white rounded-xl shadow-md p-6" data-aos="fade-up">
+  <div class="flex flex-col md:flex-row items-center md:items-start mb-6">
+    <!-- Lado izquierdo: Texto -->
+    <div class="md:w-1/2 w-full md:pr-8" data-aos="fade-right">
+      <h3 class="text-blue-900 text-xl font-bold mb-4">Servicio Administrado de Respaldo</h3>
+      <p class="text-gray-700 mb-6">
+        Ofrecemos servicios especializados con tecnología de vanguardia para resguardar y mantener íntegra la información de nuestros clientes. Garantizamos la preparación ante cualquier falla o desastre, asegurando la continuidad operativa y del servicio.<br><br>
+        Nuestro servicio administrado de almacenamiento permite resguardar la información de forma segura en nuestras plataformas tecnológicas innovadoras, adaptándose a las necesidades del mercado.
+      </p>
+    </div>
+    <!-- Lado derecho: Imagen -->
+    <div class="md:w-1/2 w-full flex justify-center md:justify-end mt-6 md:mt-0" data-aos="fade-left">
+      <img src="/img/respaldo.gif" alt="Servicio de Respaldo" class="w-40 sm:w-56 md:w-64 max-w-full h-auto" />
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Características -->
+    <div data-aos="fade-up" data-aos-delay="100">
+      <h4 class="text-blue-800 font-semibold mb-2">Características</h4>
+      <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+        <li>Repositorio de información o almacenamiento desde 1TB con tolerancia a fallas.</li>
+        <li>Acceso seguro a la información.</li>
+        <li>Servicios administrados 24/7.</li>
+        <li>Monitoreo de salud de los equipos.</li>
+      </ul>
+    </div>
+    <!-- Funcionalidades -->
+    <div data-aos="fade-up" data-aos-delay="200">
+      <h4 class="text-blue-800 font-semibold mb-2">Funcionalidades</h4>
+      <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+        <li>Resguardo de la información con disponibilidad del 99.99%.</li>
+        <li>Tolerancia a fallas.</li>
+        <li>Atención personalizada para soporte y mantenimiento.</li>
+        <li>Acceso seguro a la información.</li>
+        <li>Monitoreo del sistema (hardware, software y cambios).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  <!-- Separador entre Servicio 2 y Servicio 3 -->
+  <div class="my-12"></div>
+
+   <!-- Servicio 3 -->
+  <div class="bg-white rounded-xl shadow-md p-6" data-aos="fade-up">
+    <div class="flex flex-col md:flex-row-reverse items-center md:items-start mb-6">
+      <!-- Lado derecho: Texto -->
+      <div class="md:w-1/2 w-full md:pl-8" data-aos="fade-left">
+        <h3 class="text-blue-900 text-xl font-bold mb-4">Servicio Administrado de Almacenamiento</h3>
+        <p class="text-gray-700 mb-6">
+          Brindamos soluciones avanzadas para resguardar y mantener la integridad de la información, utilizando tecnología de última generación. Nuestro objetivo es asegurar la continuidad operativa de nuestros clientes ante cualquier eventualidad.<br><br>
+          El servicio administrado de almacenamiento permite resguardar la información de manera segura y eficiente, adaptándose a las necesidades específicas de cada cliente.
+        </p>
+      </div>
+      <!-- Lado izquierdo: Imagen -->
+      <div class="md:w-1/2 w-full flex justify-center md:justify-start mt-6 md:mt-0" data-aos="fade-right">
+        <img src="/img/base-de-datos.gif" alt="Servicio de Almacenamiento" class="w-40 sm:w-56 md:w-64 max-w-full h-auto" />
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Características -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h4 class="text-blue-800 font-semibold mb-2">Características</h4>
+        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+          <li>Almacenamiento de hasta 1TB con tolerancia a fallas.</li>
+          <li>Acceso seguro y controlado a la información.</li>
+          <li>Servicios administrados 24/7.</li>
+          <li>Monitoreo constante de la salud de los equipos.</li>
+        </ul>
+      </div>
+      <!-- Funcionalidades -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h4 class="text-blue-800 font-semibold mb-2">Funcionalidades</h4>
+        <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+          <li>Disponibilidad de la información garantizada al 99.9% certificado.</li>
+          <li>Tolerancia a fallas y recuperación ante desastres.</li>
+          <li>Soporte y mantenimiento personalizado.</li>
+          <li>Acceso seguro a la información.</li>
+          <li>Monitoreo integral del sistema (hardware, software y cambios).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</section>
+  </main>
+  <footer class="bg-[#022d5a] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+        <!-- Columna 1: Contacto -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+                <li>Universidad Autónoma de Chiapas</li>
+                <li>Carretera Emiliano Zapata Km. 8</li>
+                <li>Ciudad Universitaria, C. P. 29050</li>
+                <li>Tuxtla Gutiérrez, Chiapas, México</li>
+                <li>(+52) 961 617 8000 ext. 8107</li>
+            </ul>
+        </div>
+
+        <!-- Columna 2: Más Información -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="#" class="hover:text-orange-400 transition">inicio</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">acerca de</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">servicios</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">recursos</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Mapa, Logos y redes -->
+        <div class="flex flex-col items-center space-y-4">
+            <!-- Mapa -->
+            <div class="w-full mb-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+                    width="100%" height="180" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="flex gap-4">
+                <!-- Logos (usa tus imágenes reales o URLs aquí) -->
+                <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
+                <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
+            </div>
+
+            <!-- Redes sociales -->
+            
+                    
+        </div>
+    </div>
+</footer>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+    // Ocultar loader al cargar la página con retraso
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById('loader').style.display = 'none';
+      }, 500); // 1500 ms = 1.5 segundos
+    };
+  </script>
+</body>
+</html>

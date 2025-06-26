@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+  @media (max-width: 640px) {
+    /* Estado inicial (mobile) */
+    #info .group .group-hover\:opacity-100,
+    #info .group .group-hover\:opacity-0 {
+      transition: all 0.3s ease;
+    }
+    
+    /* Cuando MOSTRAR PÁRRAFO */
+    #info .group.show-p .group-hover\:opacity-100 {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: scale(1) !important;
+    }
+    #info .group.show-p .group-hover\:opacity-0 {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+    #info .group.show-p .group-hover\:bg-opacity-80 {
+      --tw-bg-opacity: 0.8 !important;
+    }
+    
+    /* Cuando MOSTRAR TÍTULO */
+    #info .group.show-h2 .group-hover\:opacity-0 {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    #info .group.show-h2 .group-hover\:opacity-100 {
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+    #info .group.show-h2 .group-hover\:bg-opacity-80 {
+      --tw-bg-opacity: 0.6 !important;
+    }
+  }
+</style>
+
+</head>
+<body class="bg-[#0E0E0E]">
+    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <img src="/img/cargando.gif" alt="Cargando..." class="w-32 h-32 animate-pulse" />
+  </div>
+  <script>
+    // Muestra el loader al cargar la página
+    window.onload = function() {
+        const loader = document.getElementById('loader');
+        // Oculta el loader después de 2 segundos (ajusta según sea necesario)
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500); // Cambia 2000 a 0 si no quieres un retraso
+    };
+</script>
+    <nav class="bg-black text-white px-6 py-7 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+    <div class="font-bold text-2xl">LARCAD</div>
+    <!-- Hamburger Icon (Mobile) -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none" aria-label="Abrir menú">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+    </button>
+    <!-- Menu -->
+    <ul id="nav-menu" class="flex-col md:flex-row md:flex space-y-4 md:space-y-0 md:space-x-6 absolute md:static top-16 left-0 w-full md:w-auto bg-black md:bg-transparent px-6 md:px-0 py-4 md:py-0 hidden md:flex z-20">
+        <li class="relative group">
+            <a href="index.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="index">Inicio</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="nosotros.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="nosotros">Nosotros</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="servicio.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="servicio">Servicios</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <button type="button" class="hover:text-orange-400 flex items-center w-full md:w-auto transition-colors duration-300 group-hover:text-orange-400">
+                Recursos
+                <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <ul class="absolute md:left-0 mt-2 w-40 bg-black text-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-30 hidden md:block">
+                <li><a href="hardware.html" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Hardware</a></li>
+                <li><a href="software.html" class="block px-4 py-2 hover:bg-orange-600 transition-colors duration-300">Software</a></li>
+            </ul>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+        <li class="relative group">
+            <a href="contacto.html" class="hover:text-orange-400 block transition-colors duration-300 nav-link group-hover:text-orange-400" data-page="contacto">Contacto</a>
+            <div class="absolute bottom-[-10px] left-0 w-0 h-[3px] bg-orange-500 transition-all duration-300 nav-indicator group-hover:w-full"></div>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    const btn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('nav-menu');
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // Submenú funcional en móvil (menor a 768px)
+    const recursosItem = document.querySelectorAll('li.group')[3]; // El cuarto elemento con clase group
+    const submenu = recursosItem.querySelector('ul');
+    const recursosButton = recursosItem.querySelector('button');
+
+    recursosButton.addEventListener('click', (e) => {
+        if (window.innerWidth < 768) {
+            e.preventDefault();
+            submenu.classList.toggle('hidden');
+        }
+    });
+
+    // Detectar página activa y animar el indicador
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('data-page') === currentPage) {
+                link.classList.add('text-orange-400');
+                const indicator = link.parentElement.querySelector('.nav-indicator');
+                indicator.classList.add('w-full');
+            }
+        });
+    });
+</script>
+    <div class="w-full h-[60vh] md:h-[calc(100vh-72px)] relative ">
+        <img src="/img/InicioNos.png" alt="Supercomputo" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 flex flex-col items-end justify-center pr-4 md:pr-8 pointer-events-none">
+            <img src="/img/Group 12.png" alt="LARCAD Logo" class="h-[18vw] md:h-[13vw] w-auto mb-[-2vw] md:mb-[-1vw]" />
+        </div>
+    </div>
+    <!-- Encabezado LARCAD naranja con franja azul -->
+    <div class="flex flex-col items-center mb-8" data-aos="fade-up">
+        <h1 class="text-xl md:text-2xl font-bold text-orange-500 pt-4">LARCAD - Laboratorio Regional de Computo de Alto Desempeño</h1>
+        <div class="w-16 md:w-24 h-1 bg-[#00A6FF] mt-2 rounded"></div>
+    </div>
+
+    <main class="p-8">
+        <!-- AOS necesita estar activo (ver nota abajo) -->
+<section class="py-16 bg-fixed bg-center bg-cover" style="background-image: url('/img/fondoAc1.png');" data-aos="fade-down">
+  <div class="max-w-6xl mx-auto backdrop-blur-md bg-black/30 border border-white/20 rounded-2xl shadow-xl flex flex-col md:flex-row items-center p-8 space-y-6 md:space-y-0 md:space-x-10 transition-transform duration-500 transform hover:scale-105">
+    <!-- Texto -->
+    <div class="md:w-2/3 space-y-4 text-white">
+      <h2 class="text-3xl font-bold text-orange-500">Bienvenidos</h2>
+      <p class="text-base leading-relaxed">
+        Iniciamos participando en proyectos utilizando nuestra infraestructura, la cual, reditúa en ingresos propios, con el fin de mantener en operación un Centro de Supercómputo de vanguardia tecnológica. Somos reconocidos como líderes a nivel regional, con presencia nacional e internacional, dedicados a proveer soluciones tecnológicas integrales y personalizadas en supercómputo, informática y redes, apoyados de infraestructura que nos permite contar con la capacidad para desarrollar proyectos de alto impacto en la sociedad para los sectores gubernamental, privado, educativo y científico, por medio de personal altamente capacitado y certificado en las mejores prácticas. Localizados en el corazón de México, en la ciudad capital de Tuxtla Gutiérrez Chiapas, LARCAD, posee una provechosa ubicación en el territorio mexicano.
+      </p>
+    </div>
+    <!-- Imagen -->
+    <div class="md:w-1/3 flex justify-center">
+      <img src="/img/AcercaBienv.png" alt="Sala de servidores" class="rounded-lg shadow-lg w-full max-w-sm transition-transform duration-300 hover:scale-105" />
+    </div>
+  </div>
+</section>
+
+
+<section class="py-16 bt-2 bg-fixed bg-center bg-cover" style="background-image: url('/img/fndNOSOTROS2.jpg');" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto backdrop-blur-md bg-black/10 border border-white/20 rounded-2xl shadow-xl flex flex-col md:flex-row items-center p-8 space-y-6 md:space-y-0 md:space-x-10 transition-transform duration-500 transform hover:scale-105">
+    <!-- Imagen (ahora a la izquierda) -->
+    <div class="md:w-1/3 flex flex-col items-center w-full">
+      <img src="/img/Acercapas.png" alt="Centro de Datos" class="rounded-md shadow mb-4" />
+    </div>
+    
+    <!-- Texto (ahora a la derecha) -->
+    <div class="md:w-2/3 space-y-4">
+      <h2 class="text-2xl font-semibold text-orange-500">¿Qué es?</h2>
+      <p class="text-sm text-white leading-relaxed">
+        <strong>Centro de Datos y Cómputo de Alto Desempeño</strong> con capacidad para almacenar y procesar vastas cantidades de datos, garantizando un entorno de máxima seguridad, calidad y eficiencia diseñado para satisfacer las necesidades más exigentes de instituciones públicas y privadas.
+      </p>
+      
+      <h3 class="text-xl font-semibold text-orange-400">Ofrece:</h3>
+      <ul class="text-sm text-white space-y-2 list-inside">
+        <li class="flex items-start">
+          <span class="mr-2">✓</span>
+          <span>Almacenamiento seguro y capacidad escalable para proteger datos con las tecnologías más avanzadas.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2">✓</span>
+          <span>Procesamiento de datos con la potencia de una supercomputadora de última generación.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2">✓</span>
+          <span>Infraestructura robusta que asegura la continuidad operativa con sistemas de respaldo, disponibilidad y monitoreo constante.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="mr-2">✓</span>
+          <span>Soluciones personalizadas a las necesidades específicas de cada cliente, optimizando recursos y resultados.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-16 bt-2 bg-fixed bg-center bg-cover" style="background-image: url('/img/InicioNos.png');" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto backdrop-blur-md bg-black/10 border border-white/20 rounded-2xl shadow-xl flex flex-col md:flex-row items-center p-8 space-y-6 md:space-y-0 md:space-x-10 transition-transform duration-500 transform hover:scale-105">
+    <!-- Imagen (izquierda) -->
+    <div class="md:w-1/3 flex flex-col items-center w-full order-1 md:order-none">
+      <img src="/img/Acercapas2.png" alt="Sala de servidores" class="rounded-md shadow mb-4" />
+    </div>
+    
+    <!-- Texto (derecha) -->
+    <div class="md:w-2/3 space-y-4 order-2 md:order-none">
+      <h2 class="text-2xl font-semibold text-orange-500">Infraestructura de vanguardia </h2>
+ <p class="text-sm text-white leading-relaxed">
+        Los servidores de alto desempeño del LARCAD funcionan como un clúster, requiriendo condiciones especiales para su óptimo funcionamiento. La UNACH ha realizado una inversión significativa en infraestructura, incluyendo una subestación eléctrica, sistemas de enfriamiento y un centro de datos de última generación que cumple con las normativas internacionales.
+
+ 
+
+Según el responsable técnico del proyecto Dr. Sendic Estrada Jiménez, El desarrollo del LARCAD ha sido posible gracias al apoyo de diversos programas de financiamiento, como el Fondo Mixto (FOMIX) de CONAHCYT y el Fondo de Aportaciones Múltiples (FAM) de la Secretaría de Educación. Estos recursos han permitido la construcción de la infraestructura necesaria para albergar este equipo de cómputo científico de última generación.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bt-2 bg-fixed bg-center bg-cover" style="background-image: url('/img/InicioPrincipal.png');" data-aos="fade-up">
+  <div class="max-w-6xl mx-auto backdrop-blur-md bg-black/10 border border-white/20 rounded-2xl shadow-xl flex flex-col md:flex-row items-center p-8 space-y-6 md:space-y-0 md:space-x-10 transition-transform duration-500 transform hover:scale-105">
+                <!-- Texto -->
+                <div class="md:w-2/3 space-y-4">
+                    <h2 class="text-2xl font-semibold text-orange-500">Colaboración y liderazgo</h2>
+                    <p class="text-sm text-white leading-relaxed">
+                        
+
+La UNACH ha establecido una fructífera colaboración con la Benemérita Universidad Autónoma de Puebla y el INAOE, formando un consorcio dentro de los Laboratorios Nacionales de CONAHCYT. Esta alianza permite el intercambio de servicios y el uso compartido de equipos entre los miembros del consorcio. 
+ 
+
+El LARCAD ha sido reconocido como centro de datos certificado a nivel 3, posicionándose como uno de los más avanzados del país. Cuenta con cuatro certificaciones por parte de la International Computer Room Experts Association (ICREA), avalando su excelencia en la gestión y operación del centro de datos.
+                    </p>
+                </div>
+                <!-- Imagen y botón -->
+                <div class="md:w-1/3 flex flex-col items-center w-full">
+                    <img src="/img/Acercapas.png" alt="Sala de servidores" class="rounded-md shadow mb-4" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Información -->
+        <section id="info" class="py-16 px-4">
+            <div class="max-w-6xl mx-auto" data-aos="zoom-in">
+                <h1 class="text-3xl font-bold text-center text-orange-500 mb-12">Nuestra Organización</h1>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Misión -->
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg bg-cover bg-center min-h-[12rem] sm:min-h-[16rem] transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-6">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">MISIÓN</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center p-4 overflow-y-auto max-h-full">
+                                Somos un Laboratorio Regional de Computo de Alto Desempeño(LARCAD), dinámico, innovador, de excelencia, con liderazgo regional, nacional y presencia internacional; dedicado a proveer soluciones integrales hechas a la medida en las Tecnologías de la información y comunicaciones.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Visión -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center min-h-[12rem] sm:min-h-[16rem] transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up" data-aos-delay="100">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-6">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">VISIÓN</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center p-4 pt-10 sm:pt-5  overflow-y-auto max-h-full">
+                                Ser el Laboratorio egional de Computo de Alto Desempeño(LARCAD), para ser líder en México y figurar como un referente internacional, brindando soluciones tecnológicas con un alta capacitad de respuesta para lograr satisfacer las nuevas necesidades de la sociedad, atendiendo proyectos a gran escala. Esto bajo un esquema de: • Autosustentabilidad • Infraestructura en constante actualización • Innovación de servicios • Personal certificado y orientado al aprovechamiento de los recursos.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Objetivo -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center min-h-[12rem] sm:min-h-[16rem] transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-8">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">¿QUÉ HACEMOS?</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center p-5 pt-10 sm:pt-5 overflow-y-auto max-h-full">
+                                Las Soluciones tecnológicas que ofrecemos han surgido de un contexto cultural y tecnológico, que responde a las necesidades de nuestros clientes, enfrentándonos a los desafíos que actualmente tiene las organizaciones en cuestión de tecnología. Nuestros servicios tienen el objetivo claro de ofrecer soluciones efectivas, confiables y seguras que buscan lograr resultados concretos que generen una mejora y credibilidad en su adopción.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Políticas de Calidad -->
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg bg-cover bg-center min-h-[12rem] sm:min-h-[16rem] transition-all duration-300"
+                        style="background-image: url('/img/pasillos.png');" data-aos="fade-up" data-aos-delay="300">
+                        <div class="absolute inset-0 bg-black bg-opacity-60 group-hover:bg-opacity-80 transition-all duration-300"></div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-6">
+                            <h2 class="text-orange-500 text-xl font-bold z-20 transition-all duration-300 group-hover:opacity-0 group-hover:scale-90">POLÍTICAS DE CALIDAD</h2>
+                            <p class="text-orange-500 text-base font-semibold opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 z-20 absolute inset-0 flex items-center justify-center text-center p-4 overflow-y-auto max-h-full">
+                                En LARCAD estamos orientados a brindar soluciones de vanguardiaen materia de TICs, enfocados plenamente a la satisfacción del cliente, a través de la gestión de la calidad de nuestros servicios, en el marco de la norma IOS 9001:2008.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-[#022d5a] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+
+        <!-- Columna 1: Contacto -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Detalles del contacto</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="mailto:larcad@unach.mx" class="hover:underline text-blue-300">larcad@unach.mx</a></li>
+                <li>Universidad Autónoma de Chiapas</li>
+                <li>Carretera Emiliano Zapata Km. 8</li>
+                <li>Ciudad Universitaria, C. P. 29050</li>
+                <li>Tuxtla Gutiérrez, Chiapas, México</li>
+                <li>(+52) 961 617 8000 ext. 8107</li>
+            </ul>
+        </div>
+
+        <!-- Columna 2: Más Información -->
+        <div>
+            <h4 class="text-orange-400 font-bold mb-4">Más Información</h4>
+            <ul class="space-y-2 text-sm text-gray-200">
+                <li><a href="#" class="hover:text-orange-400 transition">inicio</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">acerca de</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">servicios</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">recursos</a></li>
+                <li><a href="#" class="hover:text-orange-400 transition">contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Columna 3: Mapa, Logos y redes -->
+        <div class="flex flex-col items-center space-y-4">
+            <!-- Mapa -->
+            <div class="w-full mb-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.651786418601!2d-93.1856328!3d16.694299600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ecd0a8df2ea837%3A0x197c180cf82b5093!2sLaboratorio%20Regional%20de%20Computo%20de%20Alto%20Desempeno%20%2C%20UNACH!5e0!3m2!1ses-419!2sus!4v1749743085891!5m2!1ses-419!2sus"
+                    width="100%" height="180" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="flex gap-4">
+                <!-- Logos (usa tus imágenes reales o URLs aquí) -->
+                <img src="/img/icons/logo_Cienciayfisica.png" alt="FAM UNACH" class="h-16" />
+                <img src="/img/UNACH.svg" alt="UNACH" class="h-16" />
+            </div>
+
+            <!-- Redes sociales -->
+            
+                    
+        </div>
+    </div>
+</footer>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth <= 640) {
+      document.querySelectorAll('#info .group').forEach(card => {
+        // Estado inicial (título visible)
+        let showParagraph = false;
+        
+        card.addEventListener('click', () => {
+          showParagraph = !showParagraph; // Alternar estado
+          
+          if (showParagraph) {
+            // Mostrar párrafo (ocultar título)
+            card.classList.add('show-p');
+            card.classList.remove('show-h2');
+          } else {
+            // Mostrar título (ocultar párrafo)
+            card.classList.add('show-h2');
+            card.classList.remove('show-p');
+          }
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>
