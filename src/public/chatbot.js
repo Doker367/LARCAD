@@ -1,19 +1,27 @@
 // Chatbot flotante reutilizable LARCAD
-(function() {
-  // Inserta el HTML del chatbot automáticamente
+(function () {
   const chatbotHTML = `
     <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
       <button id="chatbot-toggle" onclick="toggleChat()" class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none transition-transform duration-200 hover:scale-110">💬</button>
-      <div id="chatbot-box" class="hidden w-80 bg-white text-black rounded-lg shadow-2xl mt-2 p-4 max-h-[400px] flex flex-col">
+      <div id="chatbot-box" class="hidden w-80 bg-white text-black rounded-lg shadow-2xl mt-2 max-h-[400px] flex flex-col">
+        <div class="chat-header">
+          <div class="chat-header-avatar">
+            🤖
+          </div>
+          <div class="chat-header-info">
+            <h3>LARCAD</h3>
+            <p>Asistente Virtual</p>
+          </div>
+        </div>
         <div id="chat-mensajes" class="flex-1 overflow-y-auto mb-4 space-y-2 text-sm"></div>
-        <div class="flex gap-2">
-          <input type="text" id="chat-entrada" placeholder="Escribe..." class="flex-1 border rounded px-2 py-1 focus:outline-none" />
-          <button onclick="enviarAlBot()" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700">Enviar</button>
+        <div class="chat-input-container flex gap-2">
+          <input type="text" id="chat-entrada" placeholder="Escribe tu mensaje..." class="flex-1 border rounded px-2 py-1 focus:outline-none" />
+          <button onclick="enviarAlBot()" class="chat-send-button">Enviar</button>
         </div>
       </div>
     </div>
   `;
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('larcad-chatbot');
     if (container && !document.getElementById('chatbot-container')) {
       container.innerHTML = chatbotHTML;
@@ -36,7 +44,7 @@
     });
   }
 
-  window.toggleChat = function() {
+  window.toggleChat = function () {
     const box = document.getElementById('chatbot-box');
     mensajes = document.getElementById('chat-mensajes');
     if (box.classList.contains('hidden')) {
@@ -54,7 +62,7 @@
     mensajes.scrollTop = mensajes.scrollHeight;
   }
 
-  window.enviarAlBot = async function(mensaje) {
+  window.enviarAlBot = async function (mensaje) {
     mensajes = document.getElementById('chat-mensajes');
     entrada = document.getElementById('chat-entrada');
     if (!mensaje) {
@@ -84,50 +92,70 @@
     }
   }
 
-  window.sugerirOpciones = function(ultimoMensaje = '', respuestaBot = '') {
+  // Utilidad para mezclar sugerencias aleatoriamente
+  function seleccionarAleatorias(arr, max = 3) {
+    return arr.sort(() => 0.5 - Math.random()).slice(0, max);
+  }
+
+  window.sugerirOpciones = function (ultimoMensaje = '', respuestaBot = '') {
     mensajes = document.getElementById('chat-mensajes');
     let sugerencias = [];
     const msg = (ultimoMensaje || '').toLowerCase();
+
     if (msg.includes('servicio')) {
-      sugerencias = [
+      const todas = [
         { t: 'Ver lista de servicios', v: '¿Qué servicios ofrecen?' },
         { t: 'Solicitar cotización', v: '¿Me puedes dar una cotización?' },
-        { t: 'Ver requisitos', v: '¿Cuáles son los requisitos para el hosting?' }
+        { t: 'Ver requisitos', v: '¿Cuáles son los requisitos para el hosting?' },
+        { t: '¿Ofrecen respaldo?', v: '¿Tienen respaldo administrado?' }
       ];
+      sugerencias = seleccionarAleatorias(todas);
     } else if (msg.includes('costo') || msg.includes('precio') || msg.includes('cotiz')) {
-      sugerencias = [
+      const todas = [
         { t: 'Solicitar cotización', v: '¿Me puedes dar una cotización?' },
-        { t: 'Ver lista de precios', v: '¿Tienen una lista de precios?' },
-        { t: 'Contactar comercial', v: '¿Cómo contacto a comercial?' }
+        { t: 'Lista de precios', v: '¿Tienen una lista de precios?' },
+        { t: 'Contactar ventas', v: '¿Cómo contacto a comercial?' },
+        { t: '¿Hay precios por hora?', v: '¿Cobran por uso o por mes?' }
       ];
+      sugerencias = seleccionarAleatorias(todas);
     } else if (msg.includes('soporte')) {
-      sugerencias = [
+      const todas = [
         { t: 'Contactar soporte', v: '¿Tienen soporte técnico?' },
         { t: 'Horario de soporte', v: '¿Cuál es el horario de soporte?' },
-        { t: 'Reportar incidente', v: '¿Cómo reporto un incidente?' }
+        { t: 'Reportar incidente', v: '¿Cómo reporto un incidente?' },
+        { t: 'Soporte remoto', v: '¿Ofrecen soporte remoto?' }
       ];
+      sugerencias = seleccionarAleatorias(todas);
     } else if (msg.includes('certific')) {
-      sugerencias = [
+      const todas = [
         { t: 'Ver certificaciones', v: '¿El centro tiene certificaciones?' },
-        { t: 'Normas de calidad', v: '¿Cumplen alguna norma de calidad?' }
+        { t: 'Normas de calidad', v: '¿Cumplen alguna norma de calidad?' },
+        { t: 'Infraestructura segura', v: '¿La infraestructura es segura?' }
       ];
+      sugerencias = seleccionarAleatorias(todas);
     } else if (msg.includes('infraestructura')) {
-      sugerencias = [
-        { t: 'Ver infraestructura', v: '¿Qué infraestructura tienen?' },
+      const todas = [
+        { t: 'Centro de datos', v: 'Cuéntame del centro de datos' },
+        { t: 'Servidores disponibles', v: '¿Qué tipo de servidores tienen?' },
         { t: 'Alta disponibilidad', v: '¿Tienen alta disponibilidad?' }
       ];
+      sugerencias = seleccionarAleatorias(todas);
     } else if (msg.includes('drp') || msg.includes('desastre')) {
       sugerencias = [
         { t: '¿Qué es DRP?', v: '¿Qué es el servicio de DRP?' },
         { t: 'Respaldo de emergencia', v: '¿Ofrecen respaldo de emergencia?' }
       ];
     } else {
-      sugerencias = [
+      const generales = [
         { t: '¿Qué servicios ofrecen?', v: '¿Qué servicios ofrecen?' },
         { t: '¿Dónde están ubicados?', v: '¿Dónde están ubicados?' },
-        { t: '¿Cómo puedo contactarlos?', v: '¿Cómo puedo contactarlos?' }
+        { t: '¿Cómo los contacto?', v: '¿Cómo puedo contactarlos?' },
+        { t: '¿Qué es LARCAD?', v: '¿Qué es el LARCAD?' }
       ];
+      sugerencias = seleccionarAleatorias(generales, 3);
     }
+
+    // Eliminar duplicados
     const unicos = [];
     const valores = new Set();
     sugerencias.forEach(s => {
@@ -136,12 +164,13 @@
         unicos.push(s);
       }
     });
-    let html = '<div class="flex flex-col gap-2 mt-4">';
+
+    let html = '<div class="flex flex-wrap gap-2 mt-4">';
     unicos.forEach(s => {
-      html += `<button onclick="enviarAlBot('${s.v}')" class="bg-blue-500 text-white px-3 py-1 rounded-lg self-start hover:bg-blue-700 transition">${s.t}</button>`;
+      html += `<button onclick="enviarAlBot('${s.v}')" class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm hover:bg-blue-100 border border-gray-300">${s.t}</button>`;
     });
     html += '</div>';
     mensajes.innerHTML += html;
     mensajes.scrollTop = mensajes.scrollHeight;
-  }
+  };
 })();

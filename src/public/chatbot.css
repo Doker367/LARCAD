@@ -14,36 +14,184 @@
     border-radius: 0;
   }
 }
+
+/* Header del chat estilo WhatsApp */
+.chat-header {
+  background: linear-gradient(135deg, #FF9009 0%, #e67e22 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 8px rgba(255, 144, 9, 0.2);
+}
+
+.chat-header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.chat-header-info h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.chat-header-info p {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Burbujas del usuario - estilo WhatsApp */
 .chat-bubble-user {
   align-self: flex-end;
-  background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
   color: #fff;
-  border-radius: 18px 18px 4px 18px;
-  padding: 0.6rem 1rem;
-  max-width: 80%;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
-  animation: fadeIn 0.3s;
+  border-radius: 16px 16px 4px 16px;
+  padding: 0.75rem 1rem;
+  max-width: 75%;
+  box-shadow: 0 2px 12px rgba(0, 123, 255, 0.15);
+  animation: slideInRight 0.3s ease;
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
+
+.chat-bubble-user::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -8px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-bottom-color: #0056b3;
+  border-right: 0;
+  border-bottom-right-radius: 4px;
+}
+
+/* Burbujas del bot - estilo diferenciado */
 .chat-bubble-bot {
   align-self: flex-start;
-  background: #fff;
-  color: #222;
-  border-radius: 18px 18px 18px 4px;
-  padding: 0.6rem 1rem;
-  max-width: 80%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  animation: fadeIn 0.3s;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #333;
+  border-radius: 16px 16px 16px 4px;
+  padding: 0.75rem 1rem;
+  max-width: 85%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  animation: slideInLeft 0.3s ease;
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  border: 1px solid #dee2e6;
 }
+
+.chat-bubble-bot::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -8px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-bottom-color: #e9ecef;
+  border-left: 0;
+  border-bottom-left-radius: 4px;
+}
+
+/* Animaciones mejoradas */
+@keyframes slideInRight {
+  from { 
+    opacity: 0; 
+    transform: translateX(20px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0) scale(1); 
+  }
+}
+
+@keyframes slideInLeft {
+  from { 
+    opacity: 0; 
+    transform: translateX(-20px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0) scale(1); 
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Contenedor principal del chat */
 #chatbot-box {
   transition: all 0.3s ease;
   transform: translateY(10px);
   opacity: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
 }
+
 #chatbot-box.flex {
   transform: translateY(0);
   opacity: 1;
+}
+
+/* Área de mensajes con fondo tipo WhatsApp */
+#chat-mensajes {
+  background: linear-gradient(to bottom, #e5ddd5 0%, #d1c7b8 100%);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Input mejorado */
+.chat-input-container {
+  background: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  padding: 0.75rem;
+}
+
+.chat-input-container input {
+  border: 1px solid #ced4da;
+  border-radius: 20px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+
+.chat-input-container input:focus {
+  border-color: #FF9009;
+  box-shadow: 0 0 0 2px rgba(255, 144, 9, 0.1);
+}
+
+.chat-send-button {
+  background: linear-gradient(135deg, #FF9009 0%, #e67e22 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.chat-send-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 144, 9, 0.3);
 }
