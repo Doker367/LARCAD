@@ -1,0 +1,15 @@
+<!-- Chatbot flotante reutilizable LARCAD -->
+<link rel="stylesheet" href="/chatbot.css">
+<div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+  <button id="chatbot-toggle" onclick="toggleChat()" class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none transition-transform duration-200 hover:scale-110">
+    💬
+  </button>
+  <div id="chatbot-box" class="hidden w-80 bg-white text-black rounded-lg shadow-2xl mt-2 p-4 max-h-[400px] flex flex-col">
+    <div id="chat-mensajes" class="flex-1 overflow-y-auto mb-4 space-y-2 text-sm"></div>
+    <div class="flex gap-2">
+      <input type="text" id="chat-entrada" placeholder="Escribe..." class="flex-1 border rounded px-2 py-1 focus:outline-none" />
+      <button onclick="enviarAlBot()" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700">Enviar</button>
+    </div>
+  </div>
+</div>
+<script src="/chatbot.js"></script>

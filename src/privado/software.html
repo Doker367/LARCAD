@@ -5,29 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LARCAD</title>
     <script src="https://cdn.tailwindcss.com"></script>
-        <!-- AOS CSS -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<style>
-  /* Previene scroll horizontal en todos los dispositivos */
-  body {
-  overflow-x-hidden;
-  position: relative;
-  width: 100vw;
-  overflow-x: hidden;
-}
-
-/* Añade esto para prevenir overflow */
-* {
-  box-sizing: border-box; /* Evita que padding afecte el ancho total */
-  margin: 0;
-  padding: 0;
-}
-
-/* Para móviles - esencial en el head */
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</style>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      .container, section, main, div {
+        max-width: 100vw;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .grid {
+        width: 100%;
+      }
+      nav {
+        width: 100vw;
+        max-width: 100vw;
+      }
+    </style>
 </head>
-<body class="bg-[#0E0E0E]" pt-[80px] >
+<body class="bg-[#0E0E0E] pt-[80px]">
+  <!-- Chatbot flotante LARCAD -->
+  <div id="larcad-chatbot"></div>
+  <link rel="stylesheet" href="chatbot.css">
+  <script src="chatbot.js"></script>
   <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
     <img src="/img/cargando.gif" alt="Cargando..." class="w-32 h-32 animate-pulse" />
   </div>

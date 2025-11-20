@@ -9,86 +9,12 @@
 </head>
 <body class="bg-[#0E0E0E] text-white font-sans">
 
-<!-- prueba mensaje -->
+<!-- Chatbot flotante LARCAD -->
+<div id="larcad-chatbot"></div>
+<link rel="stylesheet" href="chatbot.css">
+<script src="chatbot.js"></script>
 
-<!-- Burbuja flotante del chatbot -->
-<div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
-  <button id="chatbot-toggle" class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
-    💬
-  </button>
-  <div id="chatbot-box" class="hidden w-80 bg-white text-black rounded-lg shadow-2xl mt-2 p-4 max-h-[400px] flex flex-col">
-    <div id="chat-mensajes" class="flex-1 overflow-y-auto mb-4 space-y-2 text-sm"></div>
-    <div class="flex gap-2">
-      <input type="text" id="chat-entrada" placeholder="Escribe..." class="flex-1 border rounded px-2 py-1 focus:outline-none" />
-      <button onclick="enviarAlBot()" class="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700">Enviar</button>
-    </div>
-  </div>
-</div>
-<script>
-// Genera un sessionId único para el usuario
-const sessionId = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-let isFirstMessage = true;
-
-async function enviarAlBot() {
-    const mensaje = entrada.value.trim();
-    if (!mensaje) return;
-    
-    // Mensaje del usuario
-    mensajes.innerHTML += `<div class="text-right"><strong>Tú:</strong> ${mensaje}</div>`;
-    entrada.value = '';
-    mensajes.scrollTop = mensajes.scrollHeight;
-
-    try {
-        // Mensaje inicial de carga
-        if(isFirstMessage) {
-            mensajes.innerHTML += `<div class="text-left"><strong>Bot:</strong> <span id="loading-indicator">Escribiendo...</span></div>`;
-            mensajes.scrollTop = mensajes.scrollHeight;
-            isFirstMessage = false;
-        }
-
-        const res = await fetch('/api/chatbot', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                message: mensaje,  // Cambiado de 'mensaje' a 'message'
-                sessionId: sessionId
-            })
-        });
-        
-        const data = await res.json();
-        
-        // Remueve el indicador de carga
-        const loadingIndicator = document.getElementById('loading-indicator');
-        if(loadingIndicator) loadingIndicator.remove();
-        
-        // Agrega la respuesta del bot
-        mensajes.innerHTML += `<div class="text-left"><strong>Bot:</strong> ${data.fulfillmentText}</div>`;
-        mensajes.scrollTop = mensajes.scrollHeight;
-    } catch (error) {
-        console.error('Error:', error);
-        mensajes.innerHTML += `<div class="text-left text-red-500"><strong>Error:</strong> No se pudo conectar con el asistente</div>`;
-        mensajes.scrollTop = mensajes.scrollHeight;
-    }
-}
-
-// Permitir enviar con Enter
-entrada.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') enviarAlBot();
-});
-
-// Mensaje inicial al abrir el chat
-toggle.addEventListener('click', () => {
-    if (box.classList.contains('hidden')) {
-        box.classList.remove('hidden');
-        // Mensaje de bienvenida inicial
-        mensajes.innerHTML = `<div class="text-left"><strong>Bot:</strong> ¡Hola! Soy el asistente de LARCAD. ¿En qué puedo ayudarte?</div>`;
-    } else {
-        box.classList.add('hidden');
-    }
-});
-</script>
-
-
+<!-- Resto del contenido de la página -->
     <!-- gif de cargado -->
     <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
     <img src="/img/cargando.gif" alt="Cargando..." class="w-32 h-32 animate-pulse" />

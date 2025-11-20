@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 // ======================================
 try {
     // Verifica que el archivo de credenciales exista
-    const credentialsPath = path.resolve(__dirname, '../config/dialogflow-wey.json');
+    const credentialsPath = path.resolve(__dirname, '../config/dialogflow-credentials.json');
     if (!fs.existsSync(credentialsPath)) {
         throw new Error(`❌ Archivo de credenciales no encontrado en: ${credentialsPath}`);
     }
@@ -140,6 +140,38 @@ app.post('/send-email', async (req, res) => {
 });
 
 // ======================================
+// FUNCIONES DE DIALOGFLOW
+// ======================================
+const credentialsPath = path.join(__dirname, '../config/dialogflow-credentials.json');
+const sessionClient = new dialogflow.SessionsClient({ keyFilename: credentialsPath });
+
+// Función para enviar un mensaje a Dialogflow
+async function sendMessageToDialogflow(sessionId, message) {
+    const sessionPath = sessionClient.projectAgentSessionPath('chatbotlarcad-oayu', sessionId);
+
+    const request = {
+        session: sessionPath,
+        queryInput: {
+            text: {
+                text: message,
+                languageCode: 'en',
+            },
+        },
+    };
+
+    const responses = await sessionClient.detectIntent(request);
+    return responses[0].queryResult;
+}
+
+// Uso de ejemplo
+(async () => {
+    const sessionId = 'example-session-id';
+    const userMessage = 'Hello!';
+    const response = await sendMessageToDialogflow(sessionId, userMessage);
+    console.log('Dialogflow response:', response);
+})();
+
+// ======================================
 // MANEJADOR DE ERRORES
 // ======================================
 app.use((err, req, res, next) => {
@@ -159,3 +191,4 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log('   POST /send-email');
     console.log('====================================');
 });
+
